@@ -43,7 +43,7 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
-              <img src="/LEDBilbordiBG.svg" alt="LED Bilbordi" className="h-8 w-auto shrink-0 block max-h-full" />
+              <img src="/LEDBilbordiBG.svg" alt="LED Bilbordi" className="h-8 w-auto shrink-0 block max-h-full transition-transform duration-300 ease-out hover:scale-105" />
               {siteConfig.name}
             </Link>
             <nav className="hidden md:flex items-center space-x-8">
