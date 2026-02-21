@@ -1,0 +1,61 @@
+export const siteConfig = {
+  name: 'LED Bilbordi',
+  phone: '+381 11 123 4567',
+  email: 'info@ledbilbordi.rs',
+  navLinks: [
+    { href: '/', label: 'Početna' },
+    { href: '/lokacije', label: 'Lokacije' },
+    { href: '/cenovnik', label: 'Cenovnik' },
+    { href: '/kontakt', label: 'Kontakt' },
+  ],
+  locations: [
+    { id: 'sofia-center', name: 'Beograd – centar', description: 'Centralna lokacija sa visokim prometom' },
+    { id: 'sofia-mall', name: 'Beograd – tržni centar', description: 'U blizini velikih tržnih centara' },
+    { id: 'plovdiv', name: 'Novi Sad', description: 'Strategijska lokacija u centru' },
+    { id: 'varna', name: 'Niš', description: 'Važna lokacija sa visokom posetom' },
+  ],
+  pricing: [
+    {
+      name: 'BASIC',
+      price: '199€',
+      period: 'mesečno',
+      badge: undefined as string | undefined,
+      features: [
+        { text: '1 lokacija', negative: false },
+        { text: 'Slot 10 sekundi', negative: false },
+        { text: '24/7 prikaz', negative: false },
+        { text: 'Visoka rezolucija', negative: false },
+        { text: 'Dizajn nije uključen', negative: true },
+        { text: 'Izmene uz doplatu', negative: true },
+      ],
+    },
+    {
+      name: 'STANDARD',
+      price: '249€',
+      period: 'mesečno',
+      badge: '⭐ Najčešći izbor',
+      features: [
+        { text: '1 lokacija', negative: false },
+        { text: 'Slot 10 sekundi', negative: false },
+        { text: '24/7 prikaz', negative: false },
+        { text: 'Visoka rezolucija', negative: false },
+        { text: '1 profesionalni dizajn mesečno', negative: false, emphasize: true },
+        { text: 'Izmene bez ograničenja', negative: false, emphasize: true },
+      ],
+    },
+    {
+      name: 'PREMIUM',
+      price: '399€',
+      period: 'mesečno',
+      badge: undefined as string | undefined,
+      features: [
+        { text: '2 lokacije', negative: false, emphasize: true },
+        { text: 'Slot 10 sekundi', negative: false },
+        { text: '24/7 prikaz', negative: false },
+        { text: 'Visoka rezolucija', negative: false },
+        { text: '1 profesionalni dizajn mesečno', negative: false, emphasize: true },
+        { text: 'Izmene bez ograničenja', negative: false, emphasize: true },
+      ],
+    },
+  ],
+}
