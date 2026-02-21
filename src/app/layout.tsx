@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: 'Iznajmljivanje LED bilborda',
+  icons: {
+    icon: '/LEDBilbordiBG.svg',
+  },
 }
 
 export default function RootLayout({
