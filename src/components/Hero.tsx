@@ -11,12 +11,12 @@ export function Hero() {
               LED bilbordi za vaš biznis
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Profesionalni LED displeji na strategijskim lokacijama. Povećajte vidljivost vaše reklame uz digitalne bilborde visokog kvaliteta.
+              Profesionalni LED displeji na strateškim lokacijama. Povećajte vidljivost vaše reklame uz digitalne bilborde visokog kvaliteta.
             </p>
             <ul className="space-y-3 text-gray-700 mb-10">
               <li className="flex items-center">
                 <span className="text-green-600 mr-2">✓</span>
-                Strategijske lokacije sa visokim prometom
+                Strateške lokacije sa visokim prometom
               </li>
               <li className="flex items-center">
                 <span className="text-green-600 mr-2">✓</span>

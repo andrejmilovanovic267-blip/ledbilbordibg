@@ -11,7 +11,7 @@ export const siteConfig = {
   locations: [
     { id: 'sofia-center', name: 'Beograd – centar', description: 'Centralna lokacija sa visokim prometom' },
     { id: 'sofia-mall', name: 'Beograd – tržni centar', description: 'U blizini velikih tržnih centara' },
-    { id: 'plovdiv', name: 'Novi Sad', description: 'Strategijska lokacija u centru' },
+    { id: 'plovdiv', name: 'Novi Sad', description: 'Strateška lokacija u centru' },
     { id: 'varna', name: 'Niš', description: 'Važna lokacija sa visokom posetom' },
   ],
   pricing: [

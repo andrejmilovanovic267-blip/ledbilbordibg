@@ -6,6 +6,7 @@ import { FaqAccordion } from '@/components/FaqAccordion'
 import { DesignIncludedSection } from '@/components/DesignIncludedSection'
 import { LedAdvantagesSection } from '@/components/LedAdvantagesSection'
 import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
+import { faqLandingItems } from '@/content/faq'
 
 const howItWorksSteps = [
   {
@@ -35,45 +36,6 @@ const brandLogos = [
   { name: 'PRIME', mark: 'circle' as const },
   { name: 'NEXA', mark: 'square' as const },
   { name: 'ORBIT', mark: 'diamond' as const },
-]
-
-const faqItems = [
-  {
-    q: 'Koliko traje minimalni zakup?',
-    a: 'Minimalni zakup LED bilborda traje 30 dana. Ovaj period omogućava stabilnu vidljivost i kontinuitet reklamne kampanje.',
-  },
-  {
-    q: 'Koliko brzo možemo da krenemo sa kampanjom?',
-    a: 'Nakon evidentirane uplate i pripreme dizajna, reklama se emituje u najkraćem mogućem roku. Proces aktivacije kampanje je brz i jednostavan.',
-  },
-  {
-    q: 'Da li mogu da ubacim i video i fotografiju?',
-    a: 'Da, moguće je emitovanje statičnih reklama i video materijala. Sadržaj se prilagođava tehničkim specifikacijama LED ekrana.',
-  },
-  {
-    q: 'Da li dobijam izveštaj / potvrdu emitovanja?',
-    a: 'Odgovor dolazi uskoro.',
-  },
-  {
-    q: 'Da li je moguće menjati reklamu?',
-    a: 'Da, izmene reklame su moguće neograničen broj puta tokom trajanja kampanje. Svakog meseca obezbeđen je jedan dizajn bez dodatne naplate.',
-  },
-  {
-    q: 'Da li nudite pomoć oko dizajna?',
-    a: 'Da, nudimo kompletnu uslugu izrade dizajna. Jednom mesečno izrađujemo profesionalnu statičnu reklamu prilagođenu LED formatu.',
-  },
-  {
-    q: 'Koje lokacije su dostupne?',
-    a: 'LED bilbordi dostupni su na atraktivnim i prometnim lokacijama. Predlažemo pozicije u skladu sa ciljevima vaše kampanje.',
-  },
-  {
-    q: 'Sa koliko firmi se deli bilbord?',
-    a: 'Bilbord se deli sa najviše 6 firmi. Reklame se rotiraju u okviru definisanog intervala prikaza.',
-  },
-  {
-    q: 'Kako mogu da zatražim ponudu?',
-    a: 'Ponudu možete zatražiti putem kontakt forme na sajtu. Dostupni smo i putem telefona i email-a.',
-  },
 ]
 
 export default function Home() {
@@ -121,7 +83,7 @@ export default function Home() {
       <Section className="bg-gray-50">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Zašto da izaberete nas?
+            Šta nas izdvaja
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Nudimo najbolje lokacije i tehnologiju za vašu reklamu
@@ -199,7 +161,7 @@ export default function Home() {
             Česta pitanja
           </h2>
         </div>
-        <FaqAccordion items={faqItems} />
+        <FaqAccordion items={faqLandingItems} />
       </Section>
 
       <section className="bg-gray-50 py-14">
@@ -221,35 +183,39 @@ export default function Home() {
 
       <Section id="contact-form" className="bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-              <div className="max-w-lg">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                  Pošaljite upit
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8 md:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start">
+              <div className="max-w-[460px] text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight leading-tight">
+                  Zatražite ponudu bez obaveze
                 </h2>
-                <p className="text-base sm:text-lg text-gray-600 mb-4">
-                  Kontaktiraćemo vas u najkraćem roku sa predlogom lokacije i paketa.
+                <p className="text-base text-gray-600 leading-relaxed mt-3 mb-6">
+                  Pošaljite nam nekoliko osnovnih informacija o vašoj planiranoj kampanji, a naš tim će vam u najkraćem roku pripremiti jasan i konkretan predlog. Dobijate preporuku optimalne LED lokacije, predlog trajanja zakupa i transparentan pregled cene, bez skrivenih uslova i nejasnih stavki.
                 </p>
-                <ul className="space-y-2 mb-4">
-                  <li className="flex items-start text-sm leading-5 text-gray-700">
-                    <span className="text-green-600 mr-2 shrink-0">✓</span>
-                    <span>Odgovor u roku od 24h</span>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Odgovor u roku od 24h</span>
                   </li>
-                  <li className="flex items-start text-sm leading-5 text-gray-700">
-                    <span className="text-green-600 mr-2 shrink-0">✓</span>
-                    <span>Predlog lokacije i termina</span>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Predlog optimalne LED lokacije u skladu sa vašim ciljem</span>
                   </li>
-                  <li className="flex items-start text-sm leading-5 text-gray-700">
-                    <span className="text-green-600 mr-2 shrink-0">✓</span>
-                    <span>Mogućnost izmena tokom kampanje</span>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Jasni uslovi saradnje i transparentna cena</span>
                   </li>
-                  <li className="flex items-start text-sm leading-5 text-gray-700">
-                    <span className="text-green-600 mr-2 shrink-0">✓</span>
-                    <span>Jasni uslovi i fleksibilni paketi</span>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Profesionalni dizajn kreativa uključen u paket</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Mogućnost izmena tokom trajanja kampanje</span>
                   </li>
                 </ul>
-                <p className="text-xs text-gray-500">
-                  Bez obaveze, samo osnovne informacije.
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Bez skrivenih troškova. Bez nepotrebne komplikacije. Samo brz, profesionalan i realan predlog za vašu reklamu na LED bilbordima.
                 </p>
               </div>
               <div className="min-w-0">

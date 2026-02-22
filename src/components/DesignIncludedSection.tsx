@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import { Section } from '@/components/Section'
-import { ImageIcon } from 'lucide-react'
 
 const designItems = [
   'Dizajn po meri vašeg brenda (boje, font, poruka)',
@@ -12,9 +12,14 @@ export function DesignIncludedSection() {
     <Section id="dizajn" className="bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="relative w-full aspect-video rounded-2xl bg-gray-100 shadow-sm overflow-hidden flex flex-col items-center justify-center text-gray-400">
-            <ImageIcon className="w-12 h-12 md:w-14 md:h-14 mb-2" strokeWidth={1.5} />
-            <span className="text-sm">Primer dizajna (placeholder)</span>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/designer.avif"
+              alt="Profesionalni dizajn reklama za LED bilborde"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">

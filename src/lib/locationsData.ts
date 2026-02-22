@@ -123,11 +123,11 @@ export const locationsData: LocationItem[] = [
     slug: 'beograd-lokacija-3',
     name: 'Vrnjačka Banja Ulaz',
     city: 'Beograd',
-    shortDescription: 'Strategijska tačka na glavnom pravcu sa izvanrednom vidljivošću.',
+    shortDescription: 'Strateška tačka na glavnom pravcu sa izvanrednom vidljivošću.',
     description:
-      'Strategijska tačka na glavnom pravcu, sa izvanrednom vidljivošću tokom celog dana. Pogodna za korporativno brendiranje i oglase usmerene na širu javnost. Profesionalna instalacija i redovno održavanje.',
+      'Strateška tačka na glavnom pravcu, sa izvanrednom vidljivošću tokom celog dana. Pogodna za korporativno brendiranje i oglase usmerene na širu javnost. Profesionalna instalacija i redovno održavanje.',
     longDescription: [
-      'Beograd Lokacija 3 je strategijska tačka na glavnom saobraćajnom pravcu, sa izvanrednom vidljivošću tokom celog dana. LED bilbord je profesionalno instaliran i redovno se održava. Pogodan je za korporativno brendiranje i oglase usmerene na širu javnost.',
+      'Beograd Lokacija 3 je strateška tačka na glavnom saobraćajnom pravcu, sa izvanrednom vidljivošću tokom celog dana. LED bilbord je profesionalno instaliran i redovno se održava. Pogodan je za korporativno brendiranje i oglase usmerene na širu javnost.',
       'Visoka izloženost i kvalitetan prikaz čine ovu lokaciju izborom za brendove koji žele snažan vizuelni utisak. Reklame se smenjuju na svakih 20 sekundi. Dostupna je izrada dizajna i podrška tokom zakupa.',
     ],
     lat: 44.804,

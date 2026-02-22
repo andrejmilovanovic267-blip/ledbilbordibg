@@ -1,12 +1,38 @@
+import Link from 'next/link'
 import { Section } from '@/components/Section'
 import { LeadForm } from '@/components/LeadForm'
 import { siteConfig } from '@/lib/siteConfig'
+import { DesignIncludedSection } from '@/components/DesignIncludedSection'
+import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
+import { LocationsCtaSection } from '@/components/LocationsCtaSection'
+import { FaqAccordion } from '@/components/FaqAccordion'
+import { SeoTextBlock } from '@/components/SeoTextBlock'
+import { faqPricingItems } from '@/content/faq'
+
+const howItWorksSteps = [
+  {
+    title: 'Izaberite lokaciju',
+    detail: 'Pošaljite nam željeni grad, zonu ili cilj kampanje. Predlažemo LED bilbord lokacije sa najboljom vidljivošću.',
+  },
+  {
+    title: 'Dogovaramo termin i trajanje',
+    detail: 'Definišemo period oglašavanja i paket prema vašem budžetu. Transparentni uslovi, bez skrivenih troškova.',
+  },
+  {
+    title: 'Emitujemo vašu reklamu',
+    detail: 'Vaša LED reklama se prikazuje 24/7 u dogovorenom terminu. Stabilan, jasan i visoko-rezolutni prikaz.',
+  },
+  {
+    title: 'Po potrebi vršimo izmene',
+    detail: 'Tokom trajanja kampanje moguće su korekcije kreativa. Fleksibilnost koju tradicionalni bilbordi nemaju.',
+  },
+]
 
 export default function CenovnikPage() {
   return (
     <>
       <Section className="bg-white">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Cenovnik
           </h1>
@@ -17,7 +43,8 @@ export default function CenovnikPage() {
             Svi paketi uključuju tehničku podršku, stabilan prikaz i mogućnost izmena.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-stretch">
+
+        <div id="paketi" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-stretch scroll-mt-20">
           {siteConfig.pricing.map((packageItem, index) => (
             <div
               key={index}
@@ -55,47 +82,52 @@ export default function CenovnikPage() {
                 </ul>
               </div>
               <div className="mt-6">
-                <button className="btn-primary w-full">
+                <Link
+                  href="#upit-forma"
+                  className="btn-primary w-full inline-block text-center"
+                >
                   Izaberite paket
-                </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
+      </Section>
 
+      <DesignIncludedSection />
+
+      <Section id="proces" className="bg-white">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Kako da izaberete paket
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Kako funkcioniše saradnja
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+            Pokretanje LED bilbord kampanje je brzo, jednostavno i bez komplikacija. Od prve poruke do emitovanja reklame, vodimo vas kroz ceo proces.
+          </p>
+          <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+            Odgovaramo brzo, predlažemo optimalnu lokaciju i paket, a kampanja može krenuti u kratkom roku.
+          </p>
+        </div>
+        <ProcessStepsAnimated steps={howItWorksSteps} />
+        <p className="text-[13px] sm:text-sm text-gray-500 text-center mt-6 max-w-2xl mx-auto">
+          Bez obaveze • Brz odgovor • Jasni uslovi saradnje
+        </p>
+      </Section>
+
+      <LocationsCtaSection id="lokacije" />
+
+      <Section id="faq" className="bg-white">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Česta pitanja o cenovniku
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="card p-6 text-center">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              BASIC
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Idealno rešenje za manje kampanje, lokalno oglašavanje i testiranje LED bilbord oglašavanja. Namenjen firmama koje žele jednostavan i efikasan start uz kontrolisan budžet.
-            </p>
-          </div>
-          <div className="card p-6 text-center">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              STANDARD
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Najbolji izbor za brendove koji žele jače prisustvo, bolju vidljivost i veću frekvenciju prikaza. Predstavlja optimalan balans između cene, dometa i efekta kampanje.
-            </p>
-          </div>
-          <div className="card p-6 text-center">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              PREMIUM
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Za maksimalnu vidljivost, dominantno prisustvo i oglašavanje na više lokacija. Savršen za brendove koji žele snažan utisak, najveći domet i pun potencijal LED oglašavanja.
-            </p>
-          </div>
-        </div>
+        <FaqAccordion items={faqPricingItems} />
       </Section>
-      <Section className="bg-gray-50">
+
+      <SeoTextBlock />
+
+      <Section id="upit-forma" className="bg-gray-50">
         <div className="max-w-2xl mx-auto">
           <LeadForm
             title="Želite ponudu po meri?"

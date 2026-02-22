@@ -25,7 +25,7 @@ export default function LokacijePage() {
             Naše lokacije
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Izaberite među našim strategijski postavljenim LED bilbordima
+            Izaberite među našim strateški postavljenim LED bilbordima
           </p>
         </div>
 
