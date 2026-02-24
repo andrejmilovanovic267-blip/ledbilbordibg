@@ -1,8 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { Section } from '@/components/Section'
-import { LeadForm } from '@/components/LeadForm'
+import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { LocationSection } from '@/components/LocationSection'
 import { MapSection } from '@/components/MapSection'
 import { locationsData } from '@/lib/locationsData'
@@ -29,7 +30,7 @@ export default function LokacijePage() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 mb-16">
+        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 space-y-10 mb-16">
           {locationsData.map((loc, index) => (
             <LocationSection
               key={loc.id}
@@ -83,14 +84,24 @@ export default function LokacijePage() {
         </div>
       </Section>
 
-      <Section className="bg-white">
-        <div className="max-w-2xl mx-auto">
-          <LeadForm
-            title="Zainteresovani ste za određenu lokaciju?"
-            description="Popunite formu i poslaćemo vam detaljne informacije."
-          />
+      <section className="bg-gray-50 py-14">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Spremni da vaša reklama bude primećena?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            Pošaljite upit i predložićemo idealnu lokaciju i paket za vašu kampanju.
+          </p>
+          <Link
+            href="#contact-form"
+            className="btn-primary inline-flex items-center justify-center focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+          >
+            Pošaljite upit
+          </Link>
         </div>
-      </Section>
+      </section>
+
+      <SharedLeadFormSection />
     </>
   )
 }

@@ -36,7 +36,7 @@ export function LocationSection({
 
   return (
     <Link href={`/lokacije/${slug}`} className="block">
-      <article className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden group hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-300 ease-out cursor-pointer">
+      <article className="bg-white rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
           <div className={`min-w-0 ${imageOrder}`}>
             {imageSrc ? (

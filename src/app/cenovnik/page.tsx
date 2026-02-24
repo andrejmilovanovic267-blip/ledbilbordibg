@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import { Section } from '@/components/Section'
-import { LeadForm } from '@/components/LeadForm'
+import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { siteConfig } from '@/lib/siteConfig'
 import { DesignIncludedSection } from '@/components/DesignIncludedSection'
 import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
 import { LocationsCtaSection } from '@/components/LocationsCtaSection'
 import { FaqAccordion } from '@/components/FaqAccordion'
-import { SeoTextBlock } from '@/components/SeoTextBlock'
 import { faqPricingItems } from '@/content/faq'
 
 const howItWorksSteps = [
@@ -44,7 +43,7 @@ export default function CenovnikPage() {
           </p>
         </div>
 
-        <div id="paketi" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-stretch scroll-mt-20">
+        <div id="paketi" className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 items-stretch scroll-mt-20">
           {siteConfig.pricing.map((packageItem, index) => (
             <div
               key={index}
@@ -125,16 +124,24 @@ export default function CenovnikPage() {
         <FaqAccordion items={faqPricingItems} />
       </Section>
 
-      <SeoTextBlock />
-
-      <Section id="upit-forma" className="bg-gray-50">
-        <div className="max-w-2xl mx-auto">
-          <LeadForm
-            title="Želite ponudu po meri?"
-            description="Kontaktirajte nas i pripremićemo ponudu prema vašim zahtevima."
-          />
+      <section className="bg-gray-50 py-14">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Spremni da vaša reklama bude primećena?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            Pošaljite upit i predložićemo idealnu lokaciju i paket za vašu kampanju.
+          </p>
+          <Link
+            href="#upit-forma"
+            className="btn-primary inline-flex items-center justify-center focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
+          >
+            Pošaljite upit
+          </Link>
         </div>
-      </Section>
+      </section>
+
+      <SharedLeadFormSection id="upit-forma" />
     </>
   )
 }

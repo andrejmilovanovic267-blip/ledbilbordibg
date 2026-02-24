@@ -1,11 +1,11 @@
 import { Section } from '@/components/Section'
-import { LeadForm } from '@/components/LeadForm'
+import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { siteConfig } from '@/lib/siteConfig'
 
 export default function KontaktPage() {
   return (
-    <Section className="bg-white">
-      <div className="max-w-4xl mx-auto">
+    <>
+      <Section className="bg-white">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Kontaktirajte nas
@@ -14,54 +14,90 @@ export default function KontaktPage() {
             Imate pitanja? Rado ćemo vam odgovoriti
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-              Kontakt informacije
-            </h2>
-            <div className="space-y-4">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Kontakt</h2>
+            <div className="space-y-3 text-gray-600">
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-1">
-                  Telefon
-                </h3>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="text-gray-900 hover:text-blue-600"
-                >
+                <p className="text-sm font-medium text-gray-500 mb-0.5">Telefon</p>
+                <a href={`tel:${siteConfig.phone}`} className="text-gray-900 hover:text-blue-600">
                   {siteConfig.phone}
                 </a>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-gray-700 mb-1">
-                  Email
-                </h3>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-gray-900 hover:text-blue-600"
-                >
+                <p className="text-sm font-medium text-gray-500 mb-0.5">Email</p>
+                <a href={`mailto:${siteConfig.email}`} className="text-gray-900 hover:text-blue-600">
                   {siteConfig.email}
                 </a>
               </div>
-            </div>
-            <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Radno vreme
-              </h3>
-              <p className="text-gray-600">
-                Ponedeljak – Petak: 9:00 – 18:00<br />
-                Subota: 10:00 – 14:00<br />
-                Nedelja: neradni dan
+              <p className="text-sm text-gray-500 pt-3 border-t border-gray-100">
+                Preferiramo formu, ali dostupni smo i telefonom i emailom.
               </p>
             </div>
           </div>
-          <div>
-            <LeadForm
-              title="Pošaljite poruku"
-              description="Popunite formu i javićemo vam se što pre."
-            />
+
+          <div className="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Radno vreme</h2>
+            <p className="text-gray-600 leading-relaxed">
+              Ponedeljak – Subota: 8:00 – 20:00<br />
+              Nedelja: neradni dan
+            </p>
+            <p className="mt-auto text-sm text-gray-500 pt-2 border-t border-gray-100">
+              Formu možete poslati uvek, i van radnog vremena.
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 bg-white p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Brzi kontakt</h2>
+            <ul className="space-y-2 text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                <span>Odgovor u roku od 24h</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                <span>Predlog lokacije i paketa</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                <span>Profesionalna priprema kreativa</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                <span>Izmene tokom kampanje</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
+                <span>Jasni uslovi bez skrivenih troškova</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Šta da pošaljete</h2>
+            <ul className="space-y-2 text-gray-600 mb-3">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 shrink-0">•</span>
+                <span>Cilj kampanje i tip biznisa</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 shrink-0">•</span>
+                <span>Lokacija koja vas zanima (ako imate)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 shrink-0">•</span>
+                <span>Period zakupa i okvirni budžet</span>
+              </li>
+            </ul>
+            <p className="mt-auto text-sm text-gray-500 pt-2 border-t border-gray-100">
+              Što više detalja pošaljete, brže dobijate preciznu ponudu.
+            </p>
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
+
+      <SharedLeadFormSection id="contact-form" />
+    </>
   )
 }

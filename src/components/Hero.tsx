@@ -4,7 +4,7 @@ import Image from 'next/image'
 export function Hero() {
   return (
     <section className="bg-white pt-16 pb-8 sm:pt-24 sm:pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -43,9 +43,9 @@ export function Hero() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="relative w-full overflow-hidden rounded-[32px] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.35)] h-[260px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
+            <div className="relative w-full overflow-hidden rounded-[32px] h-[260px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <Image
-                src="/hero.jpg"
+                src="/Heornova.png"
                 alt="LED bilbordi Beograd"
                 fill
                 priority

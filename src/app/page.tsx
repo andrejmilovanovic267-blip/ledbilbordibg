@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Hero } from '@/components/Hero'
 import { Section } from '@/components/Section'
-import { LeadForm } from '@/components/LeadForm'
+import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { FaqAccordion } from '@/components/FaqAccordion'
 import { DesignIncludedSection } from '@/components/DesignIncludedSection'
 import { LedAdvantagesSection } from '@/components/LedAdvantagesSection'
@@ -44,7 +44,7 @@ export default function Home() {
       <Hero />
 
       <section className="bg-white py-10">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-6">
           <p className="text-sm text-gray-500 text-center mb-6">
             Sarađivali smo sa
           </p>
@@ -89,7 +89,7 @@ export default function Home() {
             Nudimo najbolje lokacije i tehnologiju za vašu reklamu
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div className="card rounded-2xl p-8 min-h-[180px] flex flex-col items-center text-center">
             <div className="mb-4 mx-auto">
               <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 text-lg font-semibold">
@@ -165,7 +165,7 @@ export default function Home() {
       </Section>
 
       <section className="bg-gray-50 py-14">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             Spremni da vaša reklama bude primećena?
           </h2>
@@ -181,50 +181,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Section id="contact-form" className="bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sm:p-8 md:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start">
-              <div className="max-w-[460px] text-left">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight leading-tight">
-                  Zatražite ponudu bez obaveze
-                </h2>
-                <p className="text-base text-gray-600 leading-relaxed mt-3 mb-6">
-                  Pošaljite nam nekoliko osnovnih informacija o vašoj planiranoj kampanji, a naš tim će vam u najkraćem roku pripremiti jasan i konkretan predlog. Dobijate preporuku optimalne LED lokacije, predlog trajanja zakupa i transparentan pregled cene, bez skrivenih uslova i nejasnih stavki.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
-                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Odgovor u roku od 24h</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
-                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Predlog optimalne LED lokacije u skladu sa vašim ciljem</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
-                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Jasni uslovi saradnje i transparentna cena</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
-                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Profesionalni dizajn kreativa uključen u paket</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
-                    <span className="text-sm md:text-[15px] text-gray-700 leading-relaxed">Mogućnost izmena tokom trajanja kampanje</span>
-                  </li>
-                </ul>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Bez skrivenih troškova. Bez nepotrebne komplikacije. Samo brz, profesionalan i realan predlog za vašu reklamu na LED bilbordima.
-                </p>
-              </div>
-              <div className="min-w-0">
-                <LeadForm embedded />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <SharedLeadFormSection />
     </>
   )
 }

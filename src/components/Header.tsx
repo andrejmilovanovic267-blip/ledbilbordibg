@@ -40,7 +40,7 @@ export function Header() {
   return (
     <>
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
               <img src="/LEDBilbordiBG.svg" alt="LED Bilbordi" className="h-8 w-auto shrink-0 block max-h-full transition-transform duration-300 ease-out hover:scale-105" />
@@ -100,10 +100,10 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigacija"
-            className="fixed top-16 left-0 right-0 z-50 md:hidden bg-white border-b border-gray-200 shadow-sm"
+            className="fixed top-16 left-0 right-0 z-50 md:hidden bg-white border-b border-gray-200"
             style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}
           >
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 pb-6">
+            <nav className="max-w-7xl mx-auto px-6 sm:px-6 py-4 pb-6">
               <ul className="space-y-1">
                 {siteConfig.navLinks.map((link) => (
                   <li key={link.href}>

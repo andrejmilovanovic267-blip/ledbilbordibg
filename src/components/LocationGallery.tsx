@@ -53,7 +53,7 @@ export function LocationGallery({ images, mainImageAlt }: LocationGalleryProps) 
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-2">
+    <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mt-10 md:mt-2">
       <div className="relative aspect-[16/9] rounded-2xl border border-gray-200 bg-gray-100 overflow-hidden">
         <div
           key={activeIndex}
@@ -75,7 +75,7 @@ export function LocationGallery({ images, mainImageAlt }: LocationGalleryProps) 
           type="button"
           onClick={goPrev}
           aria-label="Prethodna slika"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md hover:bg-white transition-opacity"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white transition-opacity"
         >
           <ChevronLeft className="w-5 h-5 text-gray-700" strokeWidth={2} />
         </button>
@@ -83,7 +83,7 @@ export function LocationGallery({ images, mainImageAlt }: LocationGalleryProps) 
           type="button"
           onClick={goNext}
           aria-label="Sledeća slika"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 shadow-md hover:bg-white transition-opacity"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white/80 hover:bg-white transition-opacity"
         >
           <ChevronRight className="w-5 h-5 text-gray-700" strokeWidth={2} />
         </button>

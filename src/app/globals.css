@@ -13,7 +13,7 @@
 
 @layer components {
   .card {
-    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+    @apply bg-white rounded-lg border border-gray-200;
   }
 
   .input {
@@ -70,4 +70,21 @@
   .animate-logo-loop {
     animation: logo-loop 25s linear infinite;
   }
+}
+
+/* Remove all box-shadow and drop-shadow (safety net) */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+}
+
+/* Leaflet z-index: ensure map stays below header (z-50) */
+.leaflet-container {
+  z-index: 0 !important;
+}
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1 !important;
 }

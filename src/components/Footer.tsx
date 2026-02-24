@@ -1,15 +1,25 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { siteConfig } from '@/lib/siteConfig'
 
 export function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              {siteConfig.name}
-            </h3>
+            <div className="flex items-center gap-2 mb-4">
+              <Image
+                src="/LEDBilbordiBG.svg"
+                alt="LED Bilbordi logo"
+                width={28}
+                height={28}
+                className="h-7 w-auto"
+              />
+              <h3 className="text-lg font-semibold text-gray-900">
+                {siteConfig.name}
+              </h3>
+            </div>
             <p className="text-sm text-gray-600">
               Profesionalni LED bilbordi za vaš biznis
             </p>

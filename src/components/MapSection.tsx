@@ -29,7 +29,7 @@ export function MapSection({
   className = '',
 }: MapSectionProps) {
   return (
-    <div className={`rounded-xl border border-gray-200 shadow-sm overflow-hidden h-[320px] md:h-[420px] ${className}`}>
+    <div className={`relative z-0 isolate overflow-hidden rounded-xl border border-gray-200 h-[320px] md:h-[420px] ${className}`}>
       <BelgradeMap
         locations={locations}
         selectedCoords={selectedCoords}

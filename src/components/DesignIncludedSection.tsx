@@ -12,7 +12,7 @@ export function DesignIncludedSection() {
     <Section id="dizajn" className="bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
             <Image
               src="/designer.avif"
               alt="Profesionalni dizajn reklama za LED bilborde"

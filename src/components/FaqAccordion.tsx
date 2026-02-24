@@ -29,7 +29,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         return (
           <div
             key={index}
-            className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
+            className="bg-white rounded-lg border border-gray-200 overflow-hidden"
           >
             <button
               type="button"

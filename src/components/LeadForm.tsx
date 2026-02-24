@@ -16,6 +16,8 @@ interface LeadFormProps {
   embedded?: boolean
   /** Preselect this location id in the "Interesovanje za lokaciju" select (must match locationsData id). */
   defaultLocationId?: string
+  /** Preselect this package value in the "Interesovanje za paket" select (e.g. BASIC, STANDARD, PREMIUM). */
+  defaultPackageId?: string
 }
 
 export function LeadForm({
@@ -25,6 +27,7 @@ export function LeadForm({
   description,
   embedded = false,
   defaultLocationId,
+  defaultPackageId,
 }: LeadFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const {
@@ -34,7 +37,10 @@ export function LeadForm({
     reset,
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
-    defaultValues: { locationInterest: defaultLocationId ?? '' },
+    defaultValues: {
+      locationInterest: defaultLocationId ?? '',
+      packageInterest: defaultPackageId ?? '',
+    },
   })
 
   const onSubmit = async (data: LeadFormData) => {
@@ -199,10 +205,12 @@ export function LeadForm({
 
   return (
     <div className={cn('card p-6 sm:p-8', className)}>
-      <h3 className="text-2xl font-semibold text-gray-900 mb-2">{title}</h3>
-      {description && (
-        <p className="text-gray-600 mb-6">{description}</p>
-      )}
+      <div className="text-center">
+        <h3 className="text-2xl font-semibold text-gray-900 mb-2">{title}</h3>
+        {description && (
+          <p className="text-gray-600 mb-6">{description}</p>
+        )}
+      </div>
       {formContent}
     </div>
   )

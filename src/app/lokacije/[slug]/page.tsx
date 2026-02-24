@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getLocationBySlug, locationsData } from '@/lib/locationsData'
 import { Section } from '@/components/Section'
-import { LeadForm } from '@/components/LeadForm'
+import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { MapSection } from '@/components/MapSection'
 import { LocationGallery } from '@/components/LocationGallery'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
@@ -61,7 +61,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
   return (
     <>
       <Section className="md:pb-4">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-8 md:mb-0">
                 <h1 className="text-4xl font-bold text-gray-900">{location.name}</h1>
                 <p className="text-lg text-gray-600">
@@ -88,7 +88,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
       </Section>
 
           <Section className="bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:items-center">
                 <div className="space-y-4">
                   {location.longDescription.map((para, i) => (
@@ -141,7 +141,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10">
+            <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mt-10 pt-10">
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
                 <div className="flex items-center gap-2 text-gray-700 text-sm">
                   <Check className="w-4 h-4 text-green-600 shrink-0" />
@@ -164,7 +164,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
       </Section>
 
           <section className="w-full bg-gray-50 border-y border-gray-200/60 py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 space-y-12">
               <div className="max-w-5xl mx-auto flex flex-col">
                 <div className="flex items-center justify-center">
                   <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">
@@ -213,14 +213,14 @@ export default async function LocationDetailPage({ params }: PageProps) {
           </section>
 
       <Section className="bg-white">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
               <div className="mb-6 text-center">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Lokacija na mapi</h2>
                 <p className="text-gray-600 text-sm">
                   Tačna pozicija LED bilborda. Kliknite na marker.
                 </p>
               </div>
-              <div className="rounded-xl border border-gray-200 shadow-sm overflow-hidden h-[320px] md:h-[420px]">
+              <div className="rounded-xl border border-gray-200 overflow-hidden h-[320px] md:h-[420px]">
                 <MapSection
                   locations={[location]}
                   selectedCoords={{ lat: location.lat, lng: location.lng }}
@@ -230,15 +230,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
             </div>
       </Section>
 
-      <Section id="upit-forma" className="bg-gray-50">
-            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-              <LeadForm
-                title="Pošaljite upit za ovu lokaciju"
-                description="Popunite formu i javićemo vam se sa detaljnim informacijama."
-                defaultLocationId={location.id}
-              />
-            </div>
-          </Section>
+      <SharedLeadFormSection id="upit-forma" defaultLocationId={location.id} />
     </>
   )
 }
