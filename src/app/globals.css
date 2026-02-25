@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Inter font - preload + font-display: swap for LCP */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-cyrillic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0400-04FF;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 

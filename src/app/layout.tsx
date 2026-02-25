@@ -1,15 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { siteConfig } from '@/lib/siteConfig'
-
-const inter = Inter({
-  subsets: ['latin', 'cyrillic'],
-  display: 'swap',
-  adjustFontFallback: true,
-})
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -26,7 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sr">
-      <body className={inter.className}>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/Inter-latin.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />
