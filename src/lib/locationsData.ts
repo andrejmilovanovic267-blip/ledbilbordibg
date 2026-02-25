@@ -71,7 +71,7 @@ export const locationsData: LocationItem[] = [
     vidljivost: 'Odlična iz više pravaca',
     recommendedFor: ['Brendiranje', 'Lansiranje proizvoda', 'Retail', 'Usluge'],
     intervalSec: 20,
-    images: ['/hero.jpg', 'galerija-1', 'galerija-2'],
+    images: ['/hero.webp', 'galerija-1', 'galerija-2'],
   },
   {
     id: 'beograd-lokacija-2',

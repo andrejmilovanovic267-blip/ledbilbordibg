@@ -39,8 +39,9 @@ export default function LokacijePage() {
               title={loc.name}
               description={loc.description}
               slug={loc.slug}
-              imageSrc={loc.id === 'beograd-lokacija-1' ? '/hero.jpg' : undefined}
+              imageSrc={loc.id === 'beograd-lokacija-1' ? '/hero.webp' : undefined}
               imageAlt={loc.id === 'beograd-lokacija-1' ? 'LED bilbord Južni bulevar Beograd' : undefined}
+              imagePriority={loc.id === 'beograd-lokacija-1'}
               prednosti={loc.prednosti}
               locationId={loc.id}
               lat={loc.lat}

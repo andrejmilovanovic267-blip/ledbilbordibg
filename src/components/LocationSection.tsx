@@ -7,9 +7,11 @@ interface LocationSectionProps {
   title: string
   description: string
   slug: string
-  /** Optional image src (e.g. /hero.jpg for Južni bulevar). When omitted, shows placeholder. */
+  /** Optional image src (e.g. /hero.webp for Južni bulevar). When omitted, shows placeholder. */
   imageSrc?: string
   imageAlt?: string
+  /** LCP optimization: set true for above-the-fold hero image to avoid lazy loading */
+  imagePriority?: boolean
   prednosti?: string[]
   locationId?: string
   lat?: number
@@ -24,6 +26,7 @@ export function LocationSection({
   slug,
   imageSrc,
   imageAlt,
+  imagePriority,
   prednosti,
   locationId,
   lat,
@@ -45,6 +48,7 @@ export function LocationSection({
                   src={imageSrc}
                   alt={imageAlt ?? title}
                   fill
+                  priority={imagePriority}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

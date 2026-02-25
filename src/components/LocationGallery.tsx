@@ -6,7 +6,7 @@ import { ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface LocationGalleryProps {
   images: string[]
-  /** Optional alt for the main image (e.g. when using hero.jpg for Južni bulevar). */
+  /** Optional alt for the main image (e.g. when using hero.webp for Južni bulevar). */
   mainImageAlt?: string
 }
 
