@@ -31,7 +31,7 @@ export default function LokacijePage() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 space-y-10 mb-16">
+        <div className="w-full lg:w-[80%] lg:mx-auto space-y-10 mb-16">
           {locationsData.map((loc, index) => (
             <LocationSection
               key={loc.id}
