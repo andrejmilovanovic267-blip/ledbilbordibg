@@ -59,7 +59,27 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-600">
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3 text-center">Brzi linkovi</h4>
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-1">
+            <Link href="/blog/cena-led-bilborda-beograd" className="text-sm text-gray-600 hover:text-gray-900">
+              Cena LED bilborda u Beogradu
+            </Link>
+            <Link href="/blog/iznajmljivanje-led-bilborda-beograd" className="text-sm text-gray-600 hover:text-gray-900">
+              Iznajmljivanje LED bilborda u Beogradu
+            </Link>
+            <Link href="/blog/iznajmljivanje-bilborda-novi-beograd" className="text-sm text-gray-600 hover:text-gray-900">
+              Iznajmljivanje LED bilborda Novi Beograd
+            </Link>
+            <Link href="/blog/iznajmljivanje-bilborda-zemun" className="text-sm text-gray-600 hover:text-gray-900">
+              Iznajmljivanje LED bilborda Zemun
+            </Link>
+            <Link href="/blog/iznajmljivanje-bilborda-autokomanda" className="text-sm text-gray-600 hover:text-gray-900">
+              Iznajmljivanje LED bilborda Autokomanda
+            </Link>
+          </nav>
+        </div>
+        <div className="mt-6 pt-6 border-t border-gray-200 text-center text-sm text-gray-600">
           <p>&copy; {new Date().getFullYear()} {siteConfig.name}. Sva prava zadržana.</p>
         </div>
       </div>

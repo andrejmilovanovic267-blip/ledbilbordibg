@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
 
 export const metadata = {
@@ -80,7 +81,7 @@ const post = {
         'Prošireni paket – 399€ mesečno',
       ],
       paragraphsAfter: [
-        'Bez skrivenih troškova i sa transparentnim uslovima saradnje.',
+        <>Bez skrivenih troškova i sa transparentnim uslovima saradnje. Pregled paketa u <Link href="/cenovnik" className="link-inline">cenovniku</Link>, sve <Link href="/lokacije" className="link-inline">lokacije u Beogradu</Link> dostupne su za pregled.</>,
       ],
     },
     {
@@ -88,7 +89,7 @@ const post = {
       variant: 'white' as const,
       paragraphs: [
         'Novi Beograd je jedna od najjačih oglašivačkih zona u gradu.',
-        'Ako želite visoku vidljivost, moderan nastup i snažan vizuelni efekat, LED bilbord u ovoj opštini je odličan izbor.',
+        <>Ako želite visoku vidljivost i moderan nastup, pogledajte sve <Link href="/lokacije" className="link-inline">dostupne lokacije</Link> i pošaljite upit putem <Link href="#contact-form" className="link-inline">kontakt forme</Link>.</>,
       ],
     },
   ],

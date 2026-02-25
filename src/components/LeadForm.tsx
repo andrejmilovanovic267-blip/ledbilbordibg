@@ -30,6 +30,7 @@ export function LeadForm({
   defaultPackageId,
 }: LeadFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const {
     register,
     handleSubmit,
@@ -44,12 +45,34 @@ export function LeadForm({
   })
 
   const onSubmit = async (data: LeadFormData) => {
-    console.log('Form submitted:', data)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitted(true)
-    reset()
-    setTimeout(() => setIsSubmitted(false), 5000)
+    setSubmitError(null)
+    const payload = {
+      name: data.fullName,
+      email: data.email,
+      phone: data.phone ?? '',
+      location: data.locationInterest ?? '',
+      package: data.packageInterest ?? '',
+      message: data.message ?? '',
+      website: data.website ?? '',
+      pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+    }
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        setSubmitError('Došlo je do greške. Pokušajte ponovo.')
+        return
+      }
+      setIsSubmitted(true)
+      reset()
+      setTimeout(() => setIsSubmitted(false), 5000)
+    } catch {
+      setSubmitError('Došlo je do greške. Pokušajte ponovo.')
+    }
   }
 
   if (isSubmitted) {
@@ -76,6 +99,14 @@ export function LeadForm({
 
   const formContent = (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <input
+          type="text"
+          {...register('website')}
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden
+        />
         <div>
           <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
             Ime i prezime *
@@ -189,12 +220,15 @@ export function LeadForm({
           )}
         </div>
 
+        {submitError && (
+          <p className="text-sm text-red-600">{submitError}</p>
+        )}
         <button
           type="submit"
           disabled={isSubmitting}
           className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Šaljem...' : 'Pošaljite upit'}
+          {isSubmitting ? 'Slanje...' : 'Pošaljite upit'}
         </button>
       </form>
   )

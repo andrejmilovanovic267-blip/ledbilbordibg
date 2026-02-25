@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
 
 export const metadata = {
@@ -58,8 +59,8 @@ const post = {
       variant: 'muted' as const,
       paragraphs: [
         'U praksi, cene iznajmljivanja LED bilborda u Beogradu mogu značajno varirati u zavisnosti od lokacije, trajanja kampanje i modela emitovanja.',
-        'Nudimo najpovoljnije opcije LED oglašavanja u Beogradu, sa paketima koji se kreću već od 199€ mesečno do 399€ mesečno, u zavisnosti od izabrane lokacije i dinamike prikaza.',
-        'Transparentni uslovi, profesionalni dizajn i mogućnost izmena tokom kampanje omogućavaju da i manji budžeti dobiju maksimalnu vidljivost.',
+        <>Nudimo najpovoljnije opcije LED oglašavanja u Beogradu, sa paketima koji se kreću već od 199€ mesečno do 399€ mesečno. Pregled paketa i cena u našem <Link href="/cenovnik" className="link-inline">cenovniku LED bilborda</Link>.</>,
+        <>Transparentni uslovi, profesionalni dizajn i mogućnost izmena tokom kampanje omogućavaju da i manji budžeti dobiju maksimalnu vidljivost. Pogledajte sve <Link href="/lokacije" className="link-inline">dostupne lokacije u Beogradu</Link>.</>,
       ],
       cta: { label: 'Pogledajte cenovnik', href: '/cenovnik' },
     },
@@ -67,9 +68,9 @@ const post = {
       title: 'Primer realne kampanje',
       variant: 'white' as const,
       paragraphs: [
-        'Na primer, lokalni biznis koji želi promociju u prometnoj gradskoj zoni može započeti kampanju sa manjim budžetom, kroz Basic paket (199€), koji omogućava stabilnu prisutnost na atraktivnim lokacijama.',
+        <>Na primer, lokalni biznis koji želi promociju u prometnoj gradskoj zoni može započeti kampanju sa manjim budžetom. Pogledajte <Link href="/lokacije/beograd-lokacija-1" className="link-inline">LED bilbord Južni bulevar</Link> ili ostale <Link href="/lokacije" className="link-inline">dostupne lokacije</Link>.</>,
         'Sa druge strane, kompanije koje žele maksimalnu vidljivost često biraju premium opcije sa više lokacija i većom frekvencijom emitovanja.',
-        'Ovakva fleksibilnost omogućava prilagođavanje oglašavanja gotovo svakom budžetu.',
+        <>Ovakva fleksibilnost omogućava prilagođavanje oglašavanja gotovo svakom budžetu. Za detalje pošaljite upit putem <Link href="#contact-form" className="link-inline">kontakt forme</Link>.</>,
       ],
     },
     {

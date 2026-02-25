@@ -40,7 +40,7 @@ export default function CenovnikPage() {
             Izaberite paket koji odgovara vašim ciljevima, budžetu i obimu kampanje.
           </p>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Svi paketi uključuju tehničku podršku, stabilan prikaz i mogućnost izmena.
+            Svi paketi uključuju tehničku podršku, stabilan prikaz i mogućnost izmena. Izaberite idealnu <Link href="/lokacije" className="link-inline">lokaciju za oglašavanje</Link> i pošaljite upit putem <Link href="#upit-forma" className="link-inline">kontakt forme</Link>.
           </p>
         </div>
 

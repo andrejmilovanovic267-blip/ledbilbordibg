@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
 
 export const metadata = {
@@ -63,15 +64,15 @@ const post = {
         'Premium paket – 399€ mesečno',
       ],
       paragraphsAfter: [
-        'Bez skrivenih troškova i sa jasnim uslovima saradnje.',
+        <>Bez skrivenih troškova i sa jasnim uslovima saradnje. Okvirne cene i pakete pogledajte u našem <Link href="/cenovnik" className="link-inline">cenovniku LED bilborda</Link>.</>,
       ],
     },
     {
       title: 'Transparentnost i planiranje budžeta',
       variant: 'white' as const,
       paragraphs: [
-        'Transparentnost cena i fleksibilni paketi omogućavaju vam da unapred planirate budžet i izbegnete neprijatna iznenađenja.',
-        'Ako razmišljate o LED oglašavanju u Beogradu, pravi trenutak za planiranje kampanje je upravo sada.',
+        <>Transparentnost cena i fleksibilni paketi omogućavaju vam da unapred planirate budžet i izbegnete neprijatna iznenađenja. Pregled paketa i cena dostupan je u našem <Link href="/cenovnik" className="link-inline">cenovniku</Link>.</>,
+        <>Ako razmišljate o LED oglašavanju u Beogradu, pogledajte sve <Link href="/lokacije" className="link-inline">dostupne lokacije</Link> i pošaljite upit putem <Link href="#contact-form" className="link-inline">kontakt forme</Link> za ponudu prilagođenu vašem budžetu.</>,
       ],
     },
   ],

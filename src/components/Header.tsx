@@ -7,8 +7,10 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/lib/siteConfig'
+import { TopBar } from '@/components/TopBar'
 
 const MOBILE_MENU_ID = 'mobile-nav'
+const TOPBAR_HEADER_HEIGHT = 'calc(2.25rem + 4rem)' // TopBar (h-9) + Header (h-16)
 
 export function Header() {
   const pathname = usePathname()
@@ -40,8 +42,10 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+      <div className="sticky top-0 z-50">
+        <TopBar />
+        <header className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
               <Image src="/LEDBilbordiBG.svg" alt="LED Bilbordi" width={120} height={32} className="h-8 w-auto shrink-0 block max-h-full transition-transform duration-300 ease-out hover:scale-105" />
@@ -87,12 +91,14 @@ export function Header() {
             </div>
           </div>
         </div>
-      </header>
+        </header>
+      </div>
 
       {menuOpen && (
         <>
           <div
-            className="fixed inset-0 top-16 z-40 bg-black/10 md:hidden transition-opacity"
+            className="fixed inset-0 z-40 bg-black/10 md:hidden transition-opacity"
+            style={{ top: TOPBAR_HEADER_HEIGHT }}
             aria-hidden
             onClick={closeMenu}
           />
@@ -101,8 +107,8 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigacija"
-            className="fixed top-16 left-0 right-0 z-50 md:hidden bg-white border-b border-gray-200"
-            style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}
+            className="fixed left-0 right-0 z-50 md:hidden bg-white border-b border-gray-200"
+            style={{ top: TOPBAR_HEADER_HEIGHT, paddingBottom: 'env(safe-area-inset-bottom, 0)' }}
           >
             <nav className="max-w-7xl mx-auto px-6 sm:px-6 py-4 pb-6">
               <ul className="space-y-1">

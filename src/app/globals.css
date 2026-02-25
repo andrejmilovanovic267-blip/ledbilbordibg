@@ -18,6 +18,23 @@
   unicode-range: U+0400-04FF;
 }
 
+/* SEO inline links – suptilan stil (ne menja CTA dugmad) */
+.link-inline {
+  @apply text-gray-900 no-underline transition-colors duration-200 ease-out;
+}
+.link-inline:hover {
+  @apply text-blue-600 underline;
+}
+
+/* FAQ sekcija – underline samo za linkove unutar FAQ */
+#faq a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#faq a:hover {
+  text-decoration-thickness: 2px;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

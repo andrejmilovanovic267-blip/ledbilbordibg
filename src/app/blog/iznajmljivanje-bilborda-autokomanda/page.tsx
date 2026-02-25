@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
 
 export const metadata = {
@@ -29,7 +30,7 @@ const post = {
       title: 'LED bilbord Južni bulevar',
       variant: 'white' as const,
       paragraphs: [
-        'U našoj ponudi nalazi se LED bilbord na atraktivnoj lokaciji u Južnom bulevaru, u neposrednoj blizini Autokomande.',
+        <>U našoj ponudi nalazi se <Link href="/lokacije/beograd-lokacija-1" className="link-inline">LED bilbord Južni bulevar</Link> na atraktivnoj lokaciji u neposrednoj blizini Autokomande.</>,
         'Ova pozicija obezbeđuje:',
       ],
       bullets: [
@@ -85,7 +86,9 @@ const post = {
         'Standard paket – 249€',
         'Prošireni paket – 399€ mesečno',
       ],
-      paragraphsAfter: ['Bez skrivenih troškova.'],
+      paragraphsAfter: [
+        <>Bez skrivenih troškova. Pregled paketa u <Link href="/cenovnik" className="link-inline">cenovniku</Link>, za upit koristite <Link href="#contact-form" className="link-inline">kontakt formu</Link>.</>,
+      ],
     },
   ],
 }

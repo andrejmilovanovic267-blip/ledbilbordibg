@@ -8,6 +8,7 @@ export const leadFormSchema = z.object({
   message: z.string().optional(),
   locationInterest: z.string().optional(),
   packageInterest: z.string().optional(),
+  website: z.string().optional(), // honeypot
 })
 
 export type LeadFormData = z.infer<typeof leadFormSchema>

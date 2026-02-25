@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
 
 export const metadata = {
@@ -57,7 +58,7 @@ const post = {
         'Trajanja kampanje',
       ],
       paragraphsAfter: [
-        'Pravilno odabrana lokacija značajno povećava efekat oglašavanja.',
+        <>Pravilno odabrana lokacija značajno povećava efekat oglašavanja. Pogledajte sve <Link href="/lokacije" className="link-inline">dostupne lokacije u Beogradu</Link>.</>,
       ],
     },
     {
@@ -86,7 +87,7 @@ const post = {
         'Prošireni paket – 399€ mesečno',
       ],
       paragraphsAfter: [
-        'Bez skrivenih troškova i sa jasnim uslovima saradnje.',
+        <>Bez skrivenih troškova i sa jasnim uslovima saradnje. Pregled paketa i cena u <Link href="/cenovnik" className="link-inline">cenovniku</Link>.</>,
       ],
     },
     {
@@ -94,7 +95,7 @@ const post = {
       variant: 'white' as const,
       paragraphs: [
         'LED bilbordi predstavljaju moćan alat za brendove koji žele visoku vidljivost i moderan nastup na tržištu.',
-        'Ako planirate oglašavanje u Beogradu, LED kampanja može biti jedan od najisplativijih poteza.',
+        <>Ako planirate oglašavanje u Beogradu, pogledajte <Link href="/lokacije" className="link-inline">lokacije</Link> i <Link href="/cenovnik" className="link-inline">cenovnik</Link>, pa pošaljite upit putem <Link href="#contact-form" className="link-inline">kontakt forme</Link>.</>,
       ],
     },
   ],

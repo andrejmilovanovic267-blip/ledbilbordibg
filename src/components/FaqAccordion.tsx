@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 export interface FaqItem {
   q: string
-  a: string
+  a: string | React.ReactNode
 }
 
 interface FaqAccordionProps {

@@ -96,6 +96,9 @@ export default async function LocationDetailPage({ params }: PageProps) {
                       {emphasizeKeywords(para, EMPHASIS_KEYWORDS[location.slug] ?? [])}
                     </p>
                   ))}
+                  <p className="text-gray-600 leading-relaxed pt-2">
+                    Za detalje o paketima pogledajte <Link href="/cenovnik" className="link-inline">cenovnik</Link>. Pošaljite upit putem <Link href="#upit-forma" className="link-inline">kontakt forme</Link>.
+                  </p>
                 </div>
                 <div>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-5">

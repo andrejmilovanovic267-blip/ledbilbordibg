@@ -5,12 +5,12 @@ import { CTAReadySection } from '@/components/CTAReadySection'
 export interface BlogSectionConfig {
   id?: string
   title: string
-  paragraphs?: string[]
+  paragraphs?: (string | React.ReactNode)[]
   /** Paragrafi nakon bullet liste */
-  paragraphsAfter?: string[]
+  paragraphsAfter?: (string | React.ReactNode)[]
   bullets?: string[]
   /** Za sekcije tipa "Šta utiče" – podnaslov + sadržaj */
-  subsections?: Array<{ title: string; content: string }>
+  subsections?: Array<{ title: string; content: string | React.ReactNode }>
   cta?: { label: string; href: string }
   variant?: 'white' | 'muted'
   /** Ključne informacije – kartica sa border-om */
