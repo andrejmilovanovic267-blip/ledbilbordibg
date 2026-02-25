@@ -6,7 +6,11 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { siteConfig } from '@/lib/siteConfig'
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] })
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  adjustFontFallback: true,
+})
 
 export const metadata: Metadata = {
   title: siteConfig.name,
