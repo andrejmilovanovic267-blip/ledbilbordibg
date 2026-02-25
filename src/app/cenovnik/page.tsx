@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Section } from '@/components/Section'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
+import { CTAReadySection } from '@/components/CTAReadySection'
 import { siteConfig } from '@/lib/siteConfig'
 import { DesignIncludedSection } from '@/components/DesignIncludedSection'
 import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
@@ -124,22 +125,7 @@ export default function CenovnikPage() {
         <FaqAccordion items={faqPricingItems} />
       </Section>
 
-      <section className="bg-gray-50 py-14">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-            Spremni da vaša reklama bude primećena?
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            Pošaljite upit i predložićemo idealnu lokaciju i paket za vašu kampanju.
-          </p>
-          <Link
-            href="#upit-forma"
-            className="btn-primary inline-flex items-center justify-center focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
-          >
-            Pošaljite upit
-          </Link>
-        </div>
-      </section>
+      <CTAReadySection targetId="upit-forma" />
 
       <SharedLeadFormSection id="upit-forma" />
     </>

@@ -8,13 +8,8 @@ export const metadata = {
 
 const post = {
   title: 'Iznajmljivanje LED bilborda Autokomanda',
-  subtitle:
-    'LED oglašavanje na jednoj od najprometnijih i najfrekventnijih saobraćajnih tačaka u Beogradu.',
-  intro: [
-    'Autokomanda predstavlja jednu od ključnih saobraćajnih raskrsnica u Beogradu, sa izuzetno velikim protokom vozila tokom celog dana.',
-    'Zahvaljujući konstantnoj frekvenciji saobraćaja i odličnoj vidljivosti, ova zona je izuzetno atraktivna za LED oglašavanje.',
-    'LED bilbord u blizini Autokomande omogućava snažnu i kontinuiranu izloženost vaše reklame.',
-  ],
+  introText:
+    'Autokomanda je jedna od najprometnijih i najfrekventnijih saobraćajnih tačaka u Beogradu sa ogromnim protokom vozila. LED bilbord ovde pruža snažnu i kontinuiranu izloženost vaše reklame. Saznajte prednosti zone i našu lokaciju u Južnom bulevaru.',
   sections: [
     {
       title: 'Zašto je Autokomanda premium oglašivačka zona?',
@@ -85,7 +80,11 @@ const post = {
         'Cena LED bilborda u ovoj zoni zavisi od paketa i trajanja kampanje.',
         'Kod nas zakup možete započeti već od:',
       ],
-      bullets: ['199€ mesečno', '399€ mesečno'],
+      bullets: [
+        'Osnovni paket – 199€ mesečno',
+        'Standard paket – 249€',
+        'Prošireni paket – 399€ mesečno',
+      ],
       paragraphsAfter: ['Bez skrivenih troškova.'],
     },
   ],

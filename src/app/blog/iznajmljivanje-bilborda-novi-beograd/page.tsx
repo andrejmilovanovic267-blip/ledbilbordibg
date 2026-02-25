@@ -8,13 +8,8 @@ export const metadata = {
 
 const post = {
   title: 'Iznajmljivanje LED bilborda Novi Beograd',
-  subtitle:
-    'Savremeno LED oglašavanje na jednoj od najprometnijih i najatraktivnijih zona u Beogradu.',
-  intro: [
-    'Novi Beograd predstavlja jednu od najdinamičnijih i najprometnijih opština u Beogradu.',
-    'Široki bulevari, veliki protok vozila i poslovni centri čine ovu zonu izuzetno atraktivnom za oglašavanje.',
-    'LED bilbordi u Novom Beogradu omogućavaju modernu, dinamičnu i visoko vidljivu promociju brendova. Ako razmišljate o ovoj lokaciji, u nastavku saznajte sve ključne informacije.',
-  ],
+  introText:
+    'Novi Beograd je jedna od najprometnijih i najatraktivnijih oglašivačkih zona u Beogradu. LED bilbordi ovde pružaju savremenu, visoko vidljivu promociju vašeg brenda. Saznajte prednosti, okvirne cene i kako započeti kampanju.',
   sections: [
     {
       title: 'Zašto je Novi Beograd idealan za LED oglašavanje?',
@@ -79,7 +74,11 @@ const post = {
         'Cena iznajmljivanja LED bilborda u Novom Beogradu zavisi od lokacije i paketa.',
         'Kod nas kampanje možete započeti već od:',
       ],
-      bullets: ['199€ mesečno', '399€ mesečno'],
+      bullets: [
+        'Osnovni paket – 199€ mesečno',
+        'Standard paket – 249€',
+        'Prošireni paket – 399€ mesečno',
+      ],
       paragraphsAfter: [
         'Bez skrivenih troškova i sa transparentnim uslovima saradnje.',
       ],

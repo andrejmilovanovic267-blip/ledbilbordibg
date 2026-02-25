@@ -16,6 +16,8 @@ interface SharedLeadFormSectionProps {
   defaultLocationId?: string
   /** Preselect package in the form (e.g. BASIC, STANDARD, PREMIUM) */
   defaultPackageId?: string
+  /** variant="blog" adds extra padding-top inside section (above form card) for blog pages */
+  variant?: 'default' | 'blog'
 }
 
 /**
@@ -28,10 +30,12 @@ export function SharedLeadFormSection({
   description = DEFAULT_DESCRIPTION,
   defaultLocationId,
   defaultPackageId,
+  variant = 'default',
 }: SharedLeadFormSectionProps) {
+  const innerPaddingClass = variant === 'blog' ? 'pt-12 sm:pt-16' : ''
   return (
     <Section id={id} className="bg-gray-50 pt-4">
-      <div className="max-w-2xl mx-auto">
+      <div className={`max-w-2xl mx-auto ${innerPaddingClass}`}>
         <LeadForm
           title={title}
           description={description}

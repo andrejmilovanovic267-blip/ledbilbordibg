@@ -8,13 +8,8 @@ export const metadata = {
 
 const post = {
   title: 'Iznajmljivanje LED bilborda u Beogradu: kompletan vodič',
-  subtitle:
-    'Sve što treba da znate pre pokretanja LED kampanje: od izbora lokacije do planiranja budžeta.',
-  intro: [
-    'LED bilbordi danas predstavljaju jedan od najmodernijih i najefikasnijih vidova spoljnog oglašavanja u Beogradu.',
-    'Za razliku od tradicionalnih bilborda, digitalni LED ekrani omogućavaju dinamičan sadržaj, veću fleksibilnost i konstantno emitovanje reklame tokom dana.',
-    'Ukoliko razmišljate o ovoj vrsti promocije, logično pitanje je: Kako izgleda proces iznajmljivanja LED bilborda u Beogradu? U ovom vodiču objašnjavamo sve ključne korake.',
-  ],
+  introText:
+    'Sve što treba da znate pre pokretanja LED kampanje, od izbora lokacije do planiranja budžeta. LED bilbordi predstavljaju jedan od najefikasnijih vidova spoljnog oglašavanja u Beogradu, zahvaljujući visokoj vidljivosti i dinamičnom prikazu. U ovom vodiču saznajte sve ključne korake.',
   sections: [
     {
       title: 'Prednosti LED oglašavanja',
@@ -85,7 +80,11 @@ const post = {
         'Cena iznajmljivanja LED bilborda u Beogradu zavisi od lokacije, trajanja i paketa.',
         'Kod nas kampanje možete započeti već od:',
       ],
-      bullets: ['199€ mesečno', '399€ mesečno'],
+      bullets: [
+        'Osnovni paket – 199€ mesečno',
+        'Standard paket – 249€',
+        'Prošireni paket – 399€ mesečno',
+      ],
       paragraphsAfter: [
         'Bez skrivenih troškova i sa jasnim uslovima saradnje.',
       ],

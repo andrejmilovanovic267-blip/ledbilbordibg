@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
+import { CTAReadySection } from '@/components/CTAReadySection'
 
 export interface BlogSectionConfig {
   id?: string
@@ -18,8 +19,8 @@ export interface BlogSectionConfig {
 
 export interface BlogPostLayoutProps {
   title: string
-  subtitle?: string
-  intro?: string[]
+  /** Jedan uvodni paragraf ispod H1 (2–3 rečenice). */
+  introText?: string
   sections: BlogSectionConfig[]
   showLeadForm?: boolean
   leadFormId?: string
@@ -28,17 +29,16 @@ export interface BlogPostLayoutProps {
 }
 
 const CONTAINER = 'max-w-5xl mx-auto px-6'
-const TEXT_MAX = 'max-w-3xl mx-auto'
-const P_CLASS = 'text-gray-600 leading-relaxed mb-4 md:text-left'
+const TEXT_MAX = 'max-w-3xl mx-auto text-center'
+const P_CLASS = 'text-gray-600 leading-relaxed mb-4 text-center'
 const H2_CLASS = 'text-xl font-semibold text-gray-900 mt-10 mb-3 pb-3 border-b border-gray-200 text-center first:mt-0'
-const BULLET_CLASS = 'space-y-2 text-gray-600 mb-4 md:text-left'
-const BULLET_ITEM = 'flex items-start gap-2'
+const BULLET_CLASS = 'space-y-2 text-gray-600 mb-4 text-center'
+const BULLET_ITEM = 'flex items-center justify-center gap-2'
 const BULLET_ICON = 'text-green-600 shrink-0'
 
 export function BlogPostLayout({
   title,
-  subtitle,
-  intro = [],
+  introText,
   sections,
   showLeadForm = true,
   leadFormId = 'contact-form',
@@ -50,46 +50,32 @@ export function BlogPostLayout({
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-white py-10 md:py-12">
+      {/* Hero – H1 + jedan uvodni paragraf */}
+      <section className="bg-white py-8 md:py-10">
         <div className={CONTAINER}>
           <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center max-w-3xl mx-auto">
             {title}
           </h1>
-          {subtitle && (
-            <p className={`text-lg text-gray-600 leading-relaxed text-center ${TEXT_MAX}`}>
-              {subtitle}
+          {introText && (
+            <p className="mt-4 sm:mt-6 max-w-3xl mx-auto text-center text-gray-600 leading-relaxed">
+              {introText}
             </p>
           )}
         </div>
       </section>
 
-      {/* Intro (prva bela sekcija) */}
-      {intro.length > 0 && (
-        <section className={sectionBg('white')}>
-          <div className={CONTAINER}>
-            <div className={TEXT_MAX}>
-              {intro.map((p, i) => (
-                <p key={i} className={P_CLASS}>
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Sekcije – naizmenično: muted, white, muted, white... */}
       {sections.map((sec, i) => {
         const defaultVariant = i % 2 === 0 ? 'muted' : 'white'
         const variant = sec.variant ?? (sec.isCard ? 'muted' : defaultVariant)
-        const isFirst = intro.length === 0 && i === 0
+        const isFirst = i === 0
+        const firstSectionMargin = i === 0 ? ' mt-12 sm:mt-14' : ''
 
         return (
           <section
             key={i}
             id={sec.id}
-            className={sectionBg(variant)}
+            className={sectionBg(variant) + firstSectionMargin}
           >
             <div className={CONTAINER}>
               <div className={TEXT_MAX}>
@@ -99,7 +85,7 @@ export function BlogPostLayout({
                       {sec.title}
                     </h2>
                     {sec.bullets && (
-                      <ul className="space-y-2 text-gray-700">
+                      <ul className="space-y-2 text-gray-700 text-center">
                         {sec.bullets.map((item, j) => (
                           <li key={j} className={BULLET_ITEM}>
                             <span className={BULLET_ICON}>✔</span>
@@ -121,7 +107,7 @@ export function BlogPostLayout({
                     ))}
                     {sec.subsections?.map((sub, j) => (
                       <div key={j} className="space-y-1 mb-4 last:mb-0">
-                        <h3 className="text-sm font-semibold text-gray-800 mb-1 md:text-left">
+                        <h3 className="text-sm font-semibold text-gray-800 mb-1 text-center">
                           {sub.title}
                         </h3>
                         <p className={P_CLASS}>{sub.content}</p>
@@ -161,11 +147,15 @@ export function BlogPostLayout({
       })}
 
       {showLeadForm && (
-        <SharedLeadFormSection
-          id={leadFormId}
-          title={leadFormTitle}
-          description={leadFormDescription}
-        />
+        <>
+          <CTAReadySection targetId={leadFormId} />
+          <SharedLeadFormSection
+            id={leadFormId}
+            title={leadFormTitle}
+            description={leadFormDescription}
+            variant="blog"
+          />
+        </>
       )}
     </>
   )

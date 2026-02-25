@@ -8,13 +8,8 @@ export const metadata = {
 
 const post = {
   title: 'Iznajmljivanje LED bilborda Zemun',
-  subtitle:
-    'Savremeno LED oglašavanje u jednoj od najfrekventnijih i najprepoznatljivijih opština u Beogradu.',
-  intro: [
-    'Zemun predstavlja jednu od najživljih i najprometnijih gradskih opština.',
-    'Veliki protok vozila, razvijena stambena i poslovna zona, kao i konstantna dnevna migracija stanovništva čine ovu lokaciju izuzetno atraktivnom za oglašavanje.',
-    'LED bilbord u Zemunu omogućava modernu, dinamičnu i visoko vidljivu promociju vašeg brenda.',
-  ],
+  introText:
+    'Zemun je jedna od najfrekventnijih i najprepoznatljivijih opština u Beogradu sa velikim protokom vozila. LED bilbord ovde omogućava moderan i visoko vidljiv nastup vašeg brenda. Saznajte prednosti i našu lokaciju u Ugrinovačkoj.',
   sections: [
     {
       title: 'Zašto je Zemun odlična zona za oglašavanje?',
@@ -83,7 +78,11 @@ const post = {
         'Cena iznajmljivanja LED bilborda u Zemunu zavisi od paketa i trajanja kampanje.',
         'Kod nas zakup možete započeti već od:',
       ],
-      bullets: ['199€ mesečno', '399€ mesečno'],
+      bullets: [
+        'Osnovni paket – 199€ mesečno',
+        'Standard paket – 249€',
+        'Prošireni paket – 399€ mesečno',
+      ],
       paragraphsAfter: ['Bez skrivenih troškova.'],
     },
   ],

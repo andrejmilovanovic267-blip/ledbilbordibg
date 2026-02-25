@@ -1,5 +1,7 @@
+import { Phone, Clock, CheckCircle, ListChecks } from 'lucide-react'
 import { Section } from '@/components/Section'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
+import { CTAReadySection } from '@/components/CTAReadySection'
 import { siteConfig } from '@/lib/siteConfig'
 
 export default function KontaktPage() {
@@ -17,7 +19,10 @@ export default function KontaktPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <div className="rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Kontakt</h2>
+            <div className="flex items-center gap-2 mb-4">
+              <Phone className="w-4 h-4 text-gray-500 shrink-0" aria-hidden />
+              <h2 className="text-xl font-bold text-gray-900">Kontakt</h2>
+            </div>
             <div className="space-y-3 text-gray-600">
               <div>
                 <p className="text-sm font-medium text-gray-500 mb-0.5">Telefon</p>
@@ -38,7 +43,10 @@ export default function KontaktPage() {
           </div>
 
           <div className="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Radno vreme</h2>
+            <div className="flex items-center gap-2 mb-4">
+              <Clock className="w-4 h-4 text-gray-500 shrink-0" aria-hidden />
+              <h2 className="text-xl font-bold text-gray-900">Radno vreme</h2>
+            </div>
             <p className="text-gray-600 leading-relaxed">
               Ponedeljak – Subota: 8:00 – 20:00<br />
               Nedelja: neradni dan
@@ -49,7 +57,10 @@ export default function KontaktPage() {
           </div>
 
           <div className="rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Brzi kontakt</h2>
+            <div className="flex items-center gap-2 mb-4">
+              <CheckCircle className="w-4 h-4 text-gray-500 shrink-0" aria-hidden />
+              <h2 className="text-xl font-bold text-gray-900">Brzi kontakt</h2>
+            </div>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start gap-2">
                 <span className="text-green-600 shrink-0 mt-[2px]">✓</span>
@@ -75,7 +86,10 @@ export default function KontaktPage() {
           </div>
 
           <div className="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Šta da pošaljete</h2>
+            <div className="flex items-center gap-2 mb-4">
+              <ListChecks className="w-4 h-4 text-gray-500 shrink-0" aria-hidden />
+              <h2 className="text-xl font-bold text-gray-900">Šta da pošaljete</h2>
+            </div>
             <ul className="space-y-2 text-gray-600 mb-3">
               <li className="flex items-start gap-2">
                 <span className="text-blue-500 shrink-0">•</span>
@@ -97,6 +111,7 @@ export default function KontaktPage() {
         </div>
       </Section>
 
+      <CTAReadySection targetId="contact-form" />
       <SharedLeadFormSection id="contact-form" />
     </>
   )

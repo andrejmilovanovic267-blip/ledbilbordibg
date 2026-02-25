@@ -29,7 +29,11 @@ export function Footer() {
               Navigacija
             </h4>
             <ul className="space-y-2">
-              {siteConfig.navLinks.map((link) => (
+              {siteConfig.navLinks.flatMap((link) =>
+                link.href === '/cenovnik'
+                  ? [link, { href: '/blog', label: 'Blog' }]
+                  : [link]
+              ).map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

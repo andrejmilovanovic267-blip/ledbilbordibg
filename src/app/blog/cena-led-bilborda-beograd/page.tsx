@@ -8,13 +8,8 @@ export const metadata = {
 
 const post = {
   title: 'Cena LED bilborda u Beogradu: od čega zavisi i kako se računa',
-  subtitle:
-    'Razumevanje faktora koji utiču na cenu pomoći će vam da pametnije planirate budžet kampanje.',
-  intro: [
-    'LED bilbordi su postali jedan od najefikasnijih vidova spoljnog oglašavanja u Beogradu. Kombinuju snagu tradicionalnog marketinga sa fleksibilnošću digitalnog prikaza, što ih čini izuzetno atraktivnim za brendove svih veličina.',
-    'Jedno od najčešćih pitanja koje dobijamo od klijenata jeste: Kako se formira cena LED bilborda u Beogradu?',
-    'Odgovor nije univerzalan jer cena zavisi od više ključnih faktora: lokacije, trajanja zakupa, frekvencije emitovanja i odabranog paketa.',
-  ],
+  introText:
+    'Cena LED bilborda u Beogradu zavisi od lokacije, trajanja zakupa i paketa. LED bilbordi predstavljaju jedan od najefikasnijih vidova spoljnog oglašavanja, zahvaljujući snazi tradicionalnog marketinga i fleksibilnosti digitalnog prikaza. Kada znate šta utiče na cenu, lakše planirate budžet i birate paket koji odgovara vašim potrebama.',
   sections: [
     {
       title: 'Ključni faktori koji utiču na cenu',
@@ -63,8 +58,9 @@ const post = {
         'Kod nas, kampanje možete započeti već od:',
       ],
       bullets: [
-        '199€ mesečno (osnovni paket)',
-        '399€ mesečno (prošireni paket)',
+        'Basic paket – 199€ mesečno',
+        'Standard paket – 249€ mesečno',
+        'Premium paket – 399€ mesečno',
       ],
       paragraphsAfter: [
         'Bez skrivenih troškova i sa jasnim uslovima saradnje.',

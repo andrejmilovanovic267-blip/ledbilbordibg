@@ -7,12 +7,8 @@ export const metadata = {
 
 const post = {
   title: 'Koliko košta iznajmljivanje LED bilborda u Beogradu?',
-  subtitle: 'Cena zavisi od lokacije, trajanja kampanje i odabranog paketa. Evo kako da realno procenite budžet.',
-  intro: [
-    'LED bilbordi danas predstavljaju jedan od najupečatljivijih i najefikasnijih vidova spoljnog oglašavanja. Kombinuju snagu tradicionalnog marketinga sa fleksibilnošću digitalnog prikaza.',
-    'Za razliku od klasičnih bilborda, digitalni LED ekrani omogućavaju dinamičan sadržaj, visoku vidljivost i konstantno emitovanje reklame tokom celog dana.',
-    'Jedno od najčešćih pitanja koje klijenti postavljaju jeste: koliko zapravo košta iznajmljivanje LED bilborda u Beogradu?',
-  ],
+  introText:
+    'Cena iznajmljivanja zavisi od lokacije, trajanja kampanje i odabranog paketa. LED bilbordi predstavljaju jedan od najupečatljivijih vidova spoljnog oglašavanja u Beogradu, zahvaljujući visokoj vidljivosti i dinamičnom prikazu. Evo kako realno proceniti budžet i dobiti najbolju vrednost.',
   sections: [
     {
       title: 'Zašto kompanije ulažu u LED oglašavanje?',
@@ -62,7 +58,7 @@ const post = {
       variant: 'muted' as const,
       paragraphs: [
         'U praksi, cene iznajmljivanja LED bilborda u Beogradu mogu značajno varirati u zavisnosti od lokacije, trajanja kampanje i modela emitovanja.',
-        'Kod nas nudimo najpovoljnije opcije LED oglašavanja u Beogradu, sa paketima koji se kreću već od 199€ mesečno, pa do 399€ mesečno, u zavisnosti od izabrane lokacije i dinamike prikaza.',
+        'Nudimo najpovoljnije opcije LED oglašavanja u Beogradu, sa paketima koji se kreću već od 199€ mesečno do 399€ mesečno, u zavisnosti od izabrane lokacije i dinamike prikaza.',
         'Transparentni uslovi, profesionalni dizajn i mogućnost izmena tokom kampanje omogućavaju da i manji budžeti dobiju maksimalnu vidljivost.',
       ],
       cta: { label: 'Pogledajte cenovnik', href: '/cenovnik' },
@@ -71,7 +67,7 @@ const post = {
       title: 'Primer realne kampanje',
       variant: 'white' as const,
       paragraphs: [
-        'Na primer, lokalni biznis koji želi promociju u prometnoj gradskoj zoni može započeti kampanju sa manjim budžetom kroz osnovni paket.',
+        'Na primer, lokalni biznis koji želi promociju u prometnoj gradskoj zoni može započeti kampanju sa manjim budžetom, kroz Basic paket (199€), koji omogućava stabilnu prisutnost na atraktivnim lokacijama.',
         'Sa druge strane, kompanije koje žele maksimalnu vidljivost često biraju premium opcije sa više lokacija i većom frekvencijom emitovanja.',
         'Ovakva fleksibilnost omogućava prilagođavanje oglašavanja gotovo svakom budžetu.',
       ],
