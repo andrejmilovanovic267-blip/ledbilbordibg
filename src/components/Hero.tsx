@@ -49,6 +49,7 @@ export function Hero() {
                 alt="LED bilbordi Beograd"
                 fill
                 priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
