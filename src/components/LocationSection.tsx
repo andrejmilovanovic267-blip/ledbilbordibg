@@ -3,14 +3,13 @@ import Image from 'next/image'
 import { ImageIcon, MapPin } from 'lucide-react'
 
 interface LocationSectionProps {
-  imageSide: 'left' | 'right'
+  imageSide?: 'left' | 'right'
   title: string
   description: string
   slug: string
-  /** Optional image src (e.g. /hero.webp for Južni bulevar). When omitted, shows placeholder. */
+  /** Optional image src (e.g. /hero.webp). When omitted, shows placeholder. */
   imageSrc?: string
   imageAlt?: string
-  /** LCP optimization: set true for above-the-fold hero image to avoid lazy loading */
   imagePriority?: boolean
   prednosti?: string[]
   locationId?: string
@@ -20,7 +19,7 @@ interface LocationSectionProps {
 }
 
 export function LocationSection({
-  imageSide,
+  imageSide = 'right',
   title,
   description,
   slug,
@@ -64,43 +63,43 @@ export function LocationSection({
             )}
           </div>
           <div className={`min-w-0 ${textOrder} pt-4 md:pt-0 flex flex-col`}>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
-              {title}
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed mb-4">
-              {description}
-            </p>
-            {prednosti && prednosti.length > 0 && (
-              <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
-                  Prednosti
-                </h4>
-                <ul className="space-y-1.5">
-                  {prednosti.map((item, index) => (
-                    <li key={index} className="flex items-start text-sm text-gray-700">
-                      <span className="text-green-600 mr-2 shrink-0">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {canShowOnMap && (
-              <div className="mt-4">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    e.stopPropagation()
-                    onShowOnMap(locationId, lat, lng)
-                  }}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus-visible:underline"
-                >
-                  <MapPin className="w-4 h-4" aria-hidden />
-                  Prikaži na mapi
-                </button>
-              </div>
-            )}
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            {description}
+          </p>
+          {prednosti && prednosti.length > 0 && (
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">
+                Prednosti
+              </h4>
+              <ul className="space-y-1.5">
+                {prednosti.map((item, index) => (
+                  <li key={index} className="flex items-start text-sm text-gray-700">
+                    <span className="text-green-600 mr-2 shrink-0">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {canShowOnMap && (
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onShowOnMap(locationId, lat, lng)
+                }}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline focus:outline-none focus-visible:underline"
+              >
+                <MapPin className="w-4 h-4" aria-hidden />
+                Prikaži na mapi
+              </button>
+            </div>
+          )}
           </div>
         </div>
       </article>

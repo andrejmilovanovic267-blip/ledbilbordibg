@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { leadFormSchema, type LeadFormData } from '@/lib/validation'
+import { createLeadFormSchema, type LeadFormData } from '@/lib/validation'
 import { locationsData } from '@/lib/locationsData'
 import { cn } from '@/lib/utils'
 
@@ -37,7 +37,7 @@ export function LeadForm({
     formState: { errors, isSubmitting },
     reset,
   } = useForm<LeadFormData>({
-    resolver: zodResolver(leadFormSchema),
+    resolver: zodResolver(createLeadFormSchema(showLocationSelect)),
     defaultValues: {
       locationInterest: defaultLocationId ?? '',
       packageInterest: defaultPackageId ?? '',
@@ -168,12 +168,15 @@ export function LeadForm({
         {showLocationSelect && (
           <div>
             <label htmlFor="locationInterest" className="block text-sm font-medium text-gray-700 mb-1">
-              Interesovanje za lokaciju
+              Interesovanje za lokaciju *
             </label>
             <select
               id="locationInterest"
               {...register('locationInterest')}
               className="input"
+              required
+              aria-invalid={!!errors.locationInterest}
+              aria-describedby={errors.locationInterest ? 'locationInterest-error' : undefined}
             >
               <option value="">Izaberite lokaciju</option>
               {locationsData.map((loc) => (
@@ -182,23 +185,36 @@ export function LeadForm({
                 </option>
               ))}
             </select>
+            {errors.locationInterest && (
+              <p id="locationInterest-error" className="mt-1 text-sm text-red-600">
+                {errors.locationInterest.message}
+              </p>
+            )}
           </div>
         )}
 
         <div>
           <label htmlFor="packageInterest" className="block text-sm font-medium text-gray-700 mb-1">
-            Interesovanje za paket
+            Interesovanje za paket *
           </label>
           <select
             id="packageInterest"
             {...register('packageInterest')}
             className="input"
+            required
+            aria-invalid={!!errors.packageInterest}
+            aria-describedby={errors.packageInterest ? 'packageInterest-error' : undefined}
           >
             <option value="">Izaberite paket</option>
             <option value="BASIC">BASIC (199€ mesečno)</option>
             <option value="STANDARD">STANDARD (249€ mesečno)</option>
             <option value="PREMIUM">PREMIUM (399€ mesečno)</option>
           </select>
+          {errors.packageInterest && (
+            <p id="packageInterest-error" className="mt-1 text-sm text-red-600">
+              {errors.packageInterest.message}
+            </p>
+          )}
         </div>
 
         <div>

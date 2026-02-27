@@ -22,7 +22,7 @@ export const siteConfig = {
       badge: undefined as string | undefined,
       features: [
         { text: '1 lokacija', negative: false },
-        { text: 'Slot 10 sekundi', negative: false },
+        { text: 'Slot 8 sekundi', negative: false },
         { text: '24/7 prikaz', negative: false },
         { text: 'Visoka rezolucija', negative: false },
         { text: 'Dizajn nije uključen', negative: true },
@@ -36,7 +36,7 @@ export const siteConfig = {
       badge: '⭐ Najčešći izbor',
       features: [
         { text: '1 lokacija', negative: false },
-        { text: 'Slot 10 sekundi', negative: false },
+        { text: 'Slot 8 sekundi', negative: false },
         { text: '24/7 prikaz', negative: false },
         { text: 'Visoka rezolucija', negative: false },
         { text: '1 profesionalni dizajn mesečno', negative: false, emphasize: true },
@@ -50,7 +50,7 @@ export const siteConfig = {
       badge: undefined as string | undefined,
       features: [
         { text: '2 lokacije', negative: false, emphasize: true },
-        { text: 'Slot 10 sekundi', negative: false },
+        { text: 'Slot 8 sekundi', negative: false },
         { text: '24/7 prikaz', negative: false },
         { text: 'Visoka rezolucija', negative: false },
         { text: '1 profesionalni dizajn mesečno', negative: false, emphasize: true },

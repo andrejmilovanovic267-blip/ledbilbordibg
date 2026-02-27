@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import { Section } from '@/components/Section'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
@@ -32,23 +31,27 @@ export default function LokacijePage() {
         </div>
 
         <div className="w-full lg:w-[80%] lg:mx-auto space-y-10 mb-16">
-          {locationsData.map((loc, index) => (
-            <LocationSection
-              key={loc.id}
-              imageSide={index % 2 === 0 ? 'right' : 'left'}
-              title={loc.name}
-              description={loc.description}
-              slug={loc.slug}
-              imageSrc={loc.id === 'beograd-lokacija-1' ? '/hero.webp' : undefined}
-              imageAlt={loc.id === 'beograd-lokacija-1' ? 'LED bilbord Južni bulevar Beograd' : undefined}
-              imagePriority={loc.id === 'beograd-lokacija-1'}
-              prednosti={loc.prednosti}
-              locationId={loc.id}
-              lat={loc.lat}
-              lng={loc.lng}
-              onShowOnMap={handleShowOnMap}
-            />
-          ))}
+          {locationsData.map((loc, index) => {
+            const firstImg = loc.images?.[0]
+            const imageSrc = firstImg?.startsWith('/') ? firstImg : firstImg === 'hero' ? '/hero.webp' : undefined
+            return (
+              <LocationSection
+                key={loc.id}
+                imageSide={index % 2 === 0 ? 'right' : 'left'}
+                title={loc.name}
+                description={loc.description}
+                slug={loc.slug}
+                imageSrc={imageSrc}
+                imageAlt={loc.id === 'beograd-lokacija-1' ? 'LED bilbord Južni bulevar Beograd' : undefined}
+                imagePriority={loc.id === 'beograd-lokacija-1'}
+                prednosti={loc.prednosti}
+                locationId={loc.id}
+                lat={loc.lat}
+                lng={loc.lng}
+                onShowOnMap={handleShowOnMap}
+              />
+            )
+          })}
         </div>
       </Section>
 
@@ -58,9 +61,6 @@ export default function LokacijePage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Mapa lokacija
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Pregled lokacija u Beogradu (uskoro sa oznakama).
-            </p>
           </div>
           <div className="flex flex-wrap gap-2 justify-center mb-4">
             <span className="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-600">
@@ -75,7 +75,7 @@ export default function LokacijePage() {
           </div>
           <MapSection
             locations={locationsData.filter(
-              (loc) => loc.name !== 'Vrnjačka Banja Ulaz' && loc.name !== 'Zlatibor Centar'
+              (loc) => loc.name !== 'Vrnjačka Banja Ulaz'
             )}
             selectedCoords={selectedCoords}
             selectedLocationId={selectedLocationId}

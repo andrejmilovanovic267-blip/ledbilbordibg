@@ -56,7 +56,7 @@ export const faqLandingItems: FaqItem[] = [
   },
   {
     q: 'Sa koliko firmi se deli bilbord?',
-    a: 'Bilbord se deli sa najviše 6 firmi. Svaka reklama se prikazuje u intervalu od 60 sekundi.',
+    a: 'Bilbord se deli sa najviše 8 firmi. Svaka reklama se prikazuje u intervalu od 64 sekunde.',
   },
   {
     q: 'Kako mogu da zatražim ponudu?',
@@ -93,7 +93,7 @@ export const faqPricingItems: FaqItem[] = [
   },
   {
     q: 'Sa koliko firmi se deli bilbord?',
-    a: 'Bilbord se deli sa najviše 6 firmi. Svaka reklama se prikazuje u intervalu od 60 sekundi.',
+    a: 'Bilbord se deli sa najviše 8 firmi. Svaka reklama se prikazuje u intervalu od 64 sekunde.',
   },
   {
     q: 'Da li je moguće menjati reklamu?',
@@ -109,7 +109,7 @@ export const faqPricingItems: FaqItem[] = [
   },
   {
     q: 'Koliko sekundi traje prikaz reklame?',
-    a: 'Slot prikaza je 10 sekundi. Reklame se rotiraju u okviru definisanog intervala prema izabranom paketu.',
+    a: 'Slot prikaza je 8 sekundi. Reklame se rotiraju u okviru definisanog intervala prema izabranom paketu.',
   },
   {
     q: 'Kada kampanja kreće?',

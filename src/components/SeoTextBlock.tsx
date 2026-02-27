@@ -9,7 +9,7 @@ export function SeoTextBlock() {
         </h2>
         <div className="text-gray-600 text-sm leading-relaxed space-y-3">
           <p>
-            Cenovnik LED bilborda u Beogradu prilagođen je različitim potrebama kampanja. Zakup LED bilborda uključuje 24/7 emitovanje, slot od 10 sekundi i visoku rezoluciju prikaza. Digitalni bilbordi Beograd nude fleksibilne pakete, od minimalnog zakupa od 30 dana do premium opcije sa 2 lokacije.
+            Cenovnik LED bilborda u Beogradu prilagođen je različitim potrebama kampanja. Zakup LED bilborda uključuje 24/7 emitovanje, slot od 8 sekundi i visoku rezoluciju prikaza. Digitalni bilbordi Beograd nude fleksibilne pakete, od minimalnog zakupa od 30 dana do premium opcije sa 2 lokacije.
           </p>
           <p>
             Standardni i premium paketi prilagođeni su različitim ciljevima kampanje i uključuju profesionalni dizajn, mogućnost izmena tokom trajanja zakupa i potpuno transparentne uslove saradnje. Fleksibilne opcije omogućavaju lako prilagođavanje budžetu, trajanju i odabranoj LED lokaciji.

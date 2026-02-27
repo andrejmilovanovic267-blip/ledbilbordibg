@@ -34,7 +34,7 @@ export function SharedLeadFormSection({
 }: SharedLeadFormSectionProps) {
   const innerPaddingClass = variant === 'blog' ? 'pt-12 sm:pt-16' : ''
   return (
-    <Section id={id} className="bg-gray-50 pt-4">
+    <Section id={id} className="bg-gray-50 pt-16">
       <div className={`max-w-2xl mx-auto ${innerPaddingClass}`}>
         <LeadForm
           title={title}

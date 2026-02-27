@@ -86,10 +86,7 @@ export function BelgradeMap({ locations, selectedCoords, selectedLocationId }: B
           <Popup>
             <div className="text-sm">
               <p className="font-semibold text-gray-900">{loc.name}</p>
-              <p className="text-gray-600 mt-1">Demo lokacija (placeholder)</p>
-              <p className="text-gray-500 mt-1 text-xs">
-                Kliknite na karticu da centrirate mapu.
-              </p>
+              <p className="text-gray-600 mt-1">LED bilbord na frekventnoj gradskoj lokaciji.</p>
             </div>
           </Popup>
         </Marker>

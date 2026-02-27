@@ -105,7 +105,7 @@ export default function KontaktPage() {
               </li>
             </ul>
             <p className="mt-auto text-sm text-gray-500 pt-2 border-t border-gray-100">
-              Što više detalja pošaljete, brže dobijate preciznu ponudu.
+              Što više detalja pošaljete, biće nam lakše da sastavimo ponudu.
             </p>
           </div>
         </div>

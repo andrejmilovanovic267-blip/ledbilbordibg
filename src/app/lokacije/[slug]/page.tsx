@@ -128,6 +128,14 @@ export default async function LocationDetailPage({ params }: PageProps) {
                         <dt className="text-gray-500">Prikaz</dt>
                         <dd className="font-medium text-gray-900">24/7</dd>
                       </div>
+                      <div>
+                        <dt className="text-gray-500">Interval prikaza</dt>
+                        <dd className="font-medium text-gray-900">64 sekunde</dd>
+                      </div>
+                      <div>
+                        <dt className="text-gray-500">Trajanje reklame</dt>
+                        <dd className="font-medium text-gray-900">8 sekundi</dd>
+                      </div>
                       {location.vidljivost && (
                         <div>
                           <dt className="text-gray-500">Vidljivost</dt>
@@ -146,22 +154,12 @@ export default async function LocationDetailPage({ params }: PageProps) {
 
             <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mt-10 pt-10">
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Check className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>Veliki dnevni protok vozila</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Check className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>Intenzivan pešački saobraćaj</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Check className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>Odlična vidljivost iz više pravaca</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700 text-sm">
-                  <Check className="w-4 h-4 text-green-600 shrink-0" />
-                  <span>Prikaz 24/7</span>
-                </div>
+                {location.benefits.map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-2 text-gray-700 text-sm">
+                    <Check className="w-4 h-4 text-green-600 shrink-0" />
+                    <span>{benefit}</span>
+                  </div>
+                ))}
               </div>
             </div>
       </Section>
@@ -181,7 +179,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
                   </div>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Rezolucija</dt>
-                    <dd className="text-gray-900">Visoka rezolucija (HD / 4K u zavisnosti od paketa)</dd>
+                    <dd className="text-gray-900">Visoka rezolucija (HD / 4K)</dd>
                   </div>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Format materijala</dt>
@@ -189,9 +187,13 @@ export default async function LocationDetailPage({ params }: PageProps) {
                   </div>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Trajanje prikaza</dt>
-                    <dd className="text-gray-900">U skladu sa izabranim paketom</dd>
+                    <dd className="text-gray-900">8 sekundi</dd>
                   </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 md:col-span-2">
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <dt className="text-sm font-medium text-gray-500 mb-1">Interval prikaza</dt>
+                    <dd className="text-gray-900">64 sekunde</dd>
+                  </div>
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Vidljivost</dt>
                     <dd className="text-gray-900">Optimizovana za dnevne i noćne uslove</dd>
                   </div>
