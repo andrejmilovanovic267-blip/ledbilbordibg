@@ -11,7 +11,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Image
                 src="/LEDBilbordiBG.svg"
-                alt="LED Bilbordi logo"
+                alt="Bilbordi Beograd logo"
                 width={28}
                 height={28}
                 className="h-7 w-auto"

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: 'Iznajmljivanje LED bilborda',
   icons: {
-    icon: '/LEDBilbordiBG.svg',
+    icon: '/LEDBilbordiBG3.svg',
   },
 }
 

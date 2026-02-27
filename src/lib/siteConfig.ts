@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'LED Bilbordi',
+  name: 'Bilbordi Beograd',
   phone: '+381 11 123 4567',
   email: 'info@ledbilbordi.rs',
   navLinks: [

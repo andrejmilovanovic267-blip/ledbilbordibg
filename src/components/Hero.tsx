@@ -46,7 +46,7 @@ export function Hero() {
             <div className="relative w-full overflow-hidden rounded-[32px] h-[260px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <Image
                 src="/Heornova.png"
-                alt="LED bilbordi Beograd"
+                alt="Bilbordi Beograd"
                 fill
                 priority
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
