@@ -59,6 +59,10 @@ export const faqLandingItems: FaqItem[] = [
     a: 'Bilbord se deli sa najviše 8 firmi. Svaka reklama se prikazuje u intervalu od 64 sekunde.',
   },
   {
+    q: 'Koliko puta se moja reklama emituje mesečno?',
+    a: 'U proseku, vaša reklama se emituje preko 40.000 puta mesečno po lokaciji (na osnovu 24/7 prikaza i intervala od 64 sekunde).',
+  },
+  {
     q: 'Kako mogu da zatražim ponudu?',
     a: (
       <>

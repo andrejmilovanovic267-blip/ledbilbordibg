@@ -133,6 +133,10 @@ export default async function LocationDetailPage({ params }: PageProps) {
                         <dd className="font-medium text-gray-900">64 sekunde</dd>
                       </div>
                       <div>
+                        <dt className="text-gray-500">Mesečni broj prikazivanja</dt>
+                        <dd className="font-medium text-gray-900">Preko 40.000</dd>
+                      </div>
+                      <div>
                         <dt className="text-gray-500">Trajanje reklame</dt>
                         <dd className="font-medium text-gray-900">8 sekundi</dd>
                       </div>

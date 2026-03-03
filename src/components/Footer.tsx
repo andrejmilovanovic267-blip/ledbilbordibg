@@ -9,16 +9,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Image
-                src="/LEDBilbordiBG.svg"
-                alt="Bilbordi Beograd logo"
-                width={28}
-                height={28}
-                className="h-7 w-auto"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">
-                {siteConfig.name}
-              </h3>
+              <Link href="/" className="inline-flex items-center gap-2">
+                <Image
+                  src="/LEDBilbordiBG3.svg"
+                  alt="Bilbordi Beograd logo"
+                  width={120}
+                  height={32}
+                  className="h-7 w-auto"
+                />
+                <span className="text-lg font-semibold text-gray-900">
+                  {siteConfig.name}
+                </span>
+              </Link>
             </div>
             <p className="text-sm text-gray-600">
               Profesionalni LED bilbordi za vaš biznis

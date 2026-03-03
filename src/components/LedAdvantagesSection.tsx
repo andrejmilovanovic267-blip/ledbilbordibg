@@ -7,6 +7,7 @@ const advantages = [
   'Odličan odnos cene i dosega za lokalne i nacionalne brendove',
   'Više formata materijala (slika ili video) u zavisnosti od lokacije',
   'Jasan, čitak prikaz prilagođen LED formatu',
+  'Preko 40.000 prikazivanja mesečno po lokaciji',
 ]
 
 export function LedAdvantagesSection() {

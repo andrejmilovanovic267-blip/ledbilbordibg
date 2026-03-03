@@ -108,6 +108,31 @@
   .animate-logo-loop {
     animation: logo-loop 25s linear infinite;
   }
+
+  @keyframes partner-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-partner-scroll {
+    animation: partner-scroll 32s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-partner-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-partner-scroll {
+      animation: none;
+      transform: translateX(0);
+    }
+  }
 }
 
 /* Remove all box-shadow and drop-shadow (safety net) */
@@ -135,4 +160,21 @@ textarea:focus-visible {
 .leaflet-top,
 .leaflet-bottom {
   z-index: 1 !important;
+}
+
+/* Slightly darker card backgrounds for better logo visibility */
+.card,
+[class*="card"],
+.rounded-xl,
+.rounded-2xl {
+  background-color: #f6f7f9;
+}
+
+.bg-white {
+  background-color: #f6f7f9;
+}
+
+.card:hover,
+[class*="card"]:hover {
+  background-color: #eef0f3;
 }

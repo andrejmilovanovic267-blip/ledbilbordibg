@@ -6,6 +6,7 @@ import { FaqAccordion } from '@/components/FaqAccordion'
 import { DesignIncludedSection } from '@/components/DesignIncludedSection'
 import { LedAdvantagesSection } from '@/components/LedAdvantagesSection'
 import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
+import PartnerMarquee from '@/components/PartnerMarquee'
 import { faqLandingItems } from '@/content/faq'
 
 const howItWorksSteps = [
@@ -27,56 +28,12 @@ const howItWorksSteps = [
   },
 ]
 
-const brandLogos = [
-  { name: 'NOVA', mark: 'circle' as const },
-  { name: 'LUMEN', mark: 'circle' as const },
-  { name: 'URBAN', mark: 'square' as const },
-  { name: 'ATLAS', mark: 'circle' as const },
-  { name: 'VISTA', mark: 'diamond' as const },
-  { name: 'PRIME', mark: 'circle' as const },
-  { name: 'NEXA', mark: 'square' as const },
-  { name: 'ORBIT', mark: 'diamond' as const },
-]
-
 export default function Home() {
   return (
     <>
       <Hero />
 
-      <section className="bg-white py-10">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-sm text-gray-500 text-center mb-6">
-            Sarađivali smo sa
-          </p>
-          <div className="relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" aria-hidden />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" aria-hidden />
-            <div className="flex gap-8 animate-logo-loop w-max">
-              {[...brandLogos, ...brandLogos].map((brand, i) => (
-                <div
-                  key={`logo-${i}`}
-                  className="h-16 min-w-[140px] px-8 flex items-center justify-center shrink-0 rounded-xl border border-gray-200/70 bg-white opacity-80 grayscale hover:opacity-100 hover:grayscale-0 transition-all"
-                >
-                  <div className="flex items-center gap-2">
-                    {brand.mark === 'circle' && (
-                      <div className="w-6 h-6 rounded-full bg-gray-100 border border-gray-200 shrink-0" />
-                    )}
-                    {brand.mark === 'square' && (
-                      <div className="w-5 h-5 rounded-sm bg-gray-100 border border-gray-200 shrink-0" />
-                    )}
-                    {brand.mark === 'diamond' && (
-                      <div className="w-5 h-5 rounded-sm bg-gray-100 border border-gray-200 shrink-0 rotate-45" />
-                    )}
-                    <span className="text-sm font-semibold tracking-wide text-gray-500 whitespace-nowrap">
-                      {brand.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <PartnerMarquee />
 
       <LedAdvantagesSection />
 
