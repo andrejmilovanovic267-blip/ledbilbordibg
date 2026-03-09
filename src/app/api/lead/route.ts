@@ -130,15 +130,21 @@ U međuvremenu možete pogledati dostupne lokacije i osnovne informacije:<br/>
 <br/><br/>
 Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:<br/><br/>
 
-Instagram:<br/>
-<a href="https://instagram.com/ledbilbordibeograd" target="_blank">
-https://instagram.com/ledbilbordibeograd
-</a><br/><br/>
-
-TikTok:<br/>
-<a href="https://tiktok.com/@ledbilbordibeograd" target="_blank">
-https://tiktok.com/@ledbilbordibeograd
-</a><br/><br/>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="padding-right: 14px;">
+      <a href="https://instagram.com/ledbilbordibeograd" target="_blank" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="32" height="32" alt="Instagram" style="display:block; border:0;" />
+      </a>
+    </td>
+    <td>
+      <a href="https://tiktok.com/@ledbilbordibeograd" target="_blank" style="text-decoration:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="32" height="32" alt="TikTok" style="display:block; border:0;" />
+      </a>
+    </td>
+  </tr>
+</table>
+<br/>
 
 Srdačan pozdrav,<br/>
 <b>LED Bilbordi Beograd</b><br/>
