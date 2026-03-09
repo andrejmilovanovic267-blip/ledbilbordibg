@@ -127,6 +127,19 @@ U većini slučajeva odgovaramo u roku od nekoliko sati.<br/><br/>
 U međuvremenu možete pogledati dostupne lokacije i osnovne informacije:<br/>
 <a href="https://ledbilbordibg.rs">ledbilbordibg.rs</a><br/><br/>
 
+<br/><br/>
+Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:<br/><br/>
+
+Instagram:<br/>
+<a href="https://instagram.com/ledbilbordibeograd" target="_blank">
+https://instagram.com/ledbilbordibeograd
+</a><br/><br/>
+
+TikTok:<br/>
+<a href="https://tiktok.com/@ledbilbordibeograd" target="_blank">
+https://tiktok.com/@ledbilbordibeograd
+</a><br/><br/>
+
 Srdačan pozdrav,<br/>
 <b>LED Bilbordi Beograd</b><br/>
 📞 061 730 7980
