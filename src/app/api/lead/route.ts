@@ -128,7 +128,7 @@ U većini slučajeva odgovaramo u roku od nekoliko sati. U međuvremenu možete 
 </p>
 
 <p style="margin:0 0 10px 0;">
-Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:
+Zapratite nas i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:
 </p>
 
 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
