@@ -49,9 +49,7 @@ export async function POST(request: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY
-    const fromEmail = process.env.RESEND_FROM_EMAIL
-    const toEmail = process.env.LEADS_TO_EMAIL
-    if (!apiKey || !fromEmail || !toEmail) {
+    if (!apiKey) {
       return NextResponse.json(
         { error: 'Server nije pravilno podešen (nedostaju env varijable)' },
         { status: 500 }
@@ -64,6 +62,8 @@ export async function POST(request: Request) {
     })
 
     const resend = new Resend(apiKey)
+    const fromAddress = 'LED Bilbordi Beograd <kontakt@ledbilbordibg.rs>'
+    const leadRecipient = 'ledbilbordibeograd@gmail.com'
     const pageUrlVal = String(pageUrl || '').trim()
     const html = `
 <!DOCTYPE html>
@@ -94,8 +94,8 @@ export async function POST(request: Request) {
     `
 
     const { error } = await resend.emails.send({
-      from: fromEmail,
-      to: toEmail,
+      from: fromAddress,
+      to: leadRecipient,
       replyTo: email.trim(),
       subject: 'Novi upit sa sajta',
       html,
@@ -112,18 +112,24 @@ export async function POST(request: Request) {
     // Potvrda kupcu (fail-safe – ne prekida request ako padne)
     try {
       const { error: confirmError } = await resend.emails.send({
-        from: fromEmail,
+        from: fromAddress,
         to: email.trim(),
-        subject: 'Hvala na upitu',
+        subject: 'Primili smo vaš upit',
         html: `
-        <div style="font-family: sans-serif; line-height: 1.5;">
-          <h2>Hvala vam na upitu</h2>
-          <p>Vaš zahtev je uspešno primljen.</p>
-          <p>Naš tim će vas kontaktirati u najkraćem roku sa predlogom lokacije i paketa.</p>
-          <br/>
-          <p>Srdačno,<br/><strong>${siteConfig.name}</strong></p>
-          <p>📞 ${siteConfig.phone}</p>
-        </div>
+Poštovani,<br/><br/>
+
+Hvala vam na interesovanju za oglašavanje na LED bilbordima.<br/><br/>
+
+Vaš upit je uspešno primljen i naš tim će ga pregledati u najkraćem mogućem roku.<br/><br/>
+
+U većini slučajeva odgovaramo u roku od nekoliko sati.<br/><br/>
+
+U međuvremenu možete pogledati dostupne lokacije i osnovne informacije:<br/>
+<a href="https://ledbilbordibg.rs">ledbilbordibg.rs</a><br/><br/>
+
+Srdačan pozdrav,<br/>
+<b>LED Bilbordi Beograd</b><br/>
+📞 061 730 7980
       `,
       })
       if (confirmError) {
