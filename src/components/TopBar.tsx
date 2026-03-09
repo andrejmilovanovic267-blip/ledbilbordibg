@@ -3,8 +3,8 @@
 import { siteConfig } from '@/lib/siteConfig'
 
 // Izmenite ovde ili koristite siteConfig
-const PHONE = siteConfig.phone // placeholder: +381 60 123 4567
-const EMAIL = siteConfig.email // placeholder: kontakt@odalis.rs
+const PHONE = siteConfig.phone
+const EMAIL = siteConfig.email
 
 const linkClass =
   'text-white/90 hover:text-white hover:underline underline-offset-2 transition-colors focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:outline-none rounded px-0.5'

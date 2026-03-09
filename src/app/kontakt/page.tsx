@@ -26,7 +26,7 @@ export default function KontaktPage() {
             <div className="space-y-3 text-gray-600">
               <div>
                 <p className="text-sm font-medium text-gray-500 mb-0.5">Telefon</p>
-                <a href={`tel:${siteConfig.phone}`} className="text-gray-900 hover:text-blue-600">
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`} className="text-gray-900 hover:text-blue-600">
                   {siteConfig.phone}
                 </a>
               </div>

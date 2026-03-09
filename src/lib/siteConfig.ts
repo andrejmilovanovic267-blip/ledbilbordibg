@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Bilbordi Beograd',
-  phone: '+381 11 123 4567',
-  email: 'info@ledbilbordi.rs',
+  phone: '061 730 7980',
+  email: 'kontakt@ledbilbordibg.rs',
   navLinks: [
     { href: '/', label: 'Početna' },
     { href: '/lokacije', label: 'Lokacije' },

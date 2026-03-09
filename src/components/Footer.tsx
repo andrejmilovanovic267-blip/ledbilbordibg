@@ -53,7 +53,7 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>
+                <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}>{siteConfig.phone}</a>
               </li>
               <li>
                 <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>

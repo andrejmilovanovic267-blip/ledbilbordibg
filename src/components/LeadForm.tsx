@@ -145,7 +145,7 @@ export function LeadForm({
             type="email"
             {...register('email')}
             className="input"
-            placeholder="ivan@primer.rs"
+            placeholder="kontakt@ledbilbordibg.rs"
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -161,7 +161,7 @@ export function LeadForm({
             type="tel"
             {...register('phone')}
             className="input"
-            placeholder="+381 11 123 4567"
+            placeholder="061 730 7980"
           />
         </div>
 
