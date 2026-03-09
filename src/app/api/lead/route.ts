@@ -116,19 +116,20 @@ export async function POST(request: Request) {
         to: email.trim(),
         subject: 'Primili smo vaš upit',
         html: `
-Poštovani,<br/><br/>
+<p style="margin:0 0 12px 0;">Poštovani,</p>
 
-Hvala vam na interesovanju za oglašavanje na LED bilbordima.<br/><br/>
+<p style="margin:0 0 12px 0;">
+Hvala vam na interesovanju za oglašavanje na LED bilbordima. Vaš upit je uspešno primljen i naš tim će ga pregledati u najkraćem mogućem roku.
+</p>
 
-Vaš upit je uspešno primljen i naš tim će ga pregledati u najkraćem mogućem roku.<br/><br/>
+<p style="margin:0 0 12px 0;">
+U većini slučajeva odgovaramo u roku od nekoliko sati. U međuvremenu možete pogledati dostupne lokacije i osnovne informacije:<br/>
+<a href="https://ledbilbordibg.rs">ledbilbordibg.rs</a>
+</p>
 
-U većini slučajeva odgovaramo u roku od nekoliko sati.<br/><br/>
-
-U međuvremenu možete pogledati dostupne lokacije i osnovne informacije:<br/>
-<a href="https://ledbilbordibg.rs">ledbilbordibg.rs</a><br/><br/>
-
-<br/><br/>
-Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:<br/><br/>
+<p style="margin:0 0 10px 0;">
+Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokacije LED bilborda:
+</p>
 
 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
   <tr>
@@ -146,9 +147,11 @@ Možete nas zapratiti i na društvenim mrežama za najnovije informacije i lokac
 </table>
 <br/>
 
+<p style="margin-top:12px;">
 Srdačan pozdrav,<br/>
 <b>LED Bilbordi Beograd</b><br/>
 📞 061 730 7980
+</p>
       `,
       })
       if (confirmError) {
