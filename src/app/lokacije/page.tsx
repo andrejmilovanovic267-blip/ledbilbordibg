@@ -20,10 +20,10 @@ export default function LokacijePage() {
   }
 
   const unavailableLocations = [
-    { name: 'Novi Beograd - Usce' },
-    { name: 'Beograd - Vojvode Stepe' },
-    { name: 'Beograd - Vukov spomenik' },
-    { name: 'Beograd - Despota Stefana' },
+    { name: 'Novi Beograd Ušće' },
+    { name: 'Beograd Vojvode Stepe' },
+    { name: 'Beograd Vukov spomenik' },
+    { name: 'Beograd Despota Stefana' },
   ]
 
   return (
@@ -75,7 +75,6 @@ export default function LokacijePage() {
 
           {/* ZAUZETE: VRNJACKA + ZLATIBOR (NA KRAJU) */}
           {[
-            { name: 'Vrnjacka Banja ulaz' },
             { name: 'Zlatibor Centar' },
           ].map((loc, index) => (
             <article
@@ -107,7 +106,7 @@ export default function LokacijePage() {
                   <span className="inline-flex items-center self-start rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 mb-2">
                     Trenutno zauzeto
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
                     {loc.name}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-0">
@@ -140,7 +139,7 @@ export default function LokacijePage() {
                   <span className="inline-flex items-center self-start rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 mb-2">
                     Trenutno zauzeto
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
                     {loc.name}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed mb-0">

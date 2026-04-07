@@ -36,7 +36,7 @@ export function LocationSection({
 
   // ✅ CENTRALNA LOGIKA (slug = jedini izvor istine)
   const isHidden = slug === 'vrnjacka-banja-ulaz'
-  const isZemun = slug === 'zemun-ugrinovacka'
+  const isZemun = slug === 'zemun-ugrinovacka' || slug === 'beograd-lokacija-2' || slug === 'beograd-lokacija-3'
 
   // ❌ Sakrij Vrnjačku potpuno
   if (isHidden) return null
