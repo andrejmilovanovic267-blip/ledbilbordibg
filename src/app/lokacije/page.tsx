@@ -20,10 +20,10 @@ export default function LokacijePage() {
   }
 
   const unavailableLocations = [
-    { name: 'Novi Beograd Ušće' },
-    { name: 'Beograd Vojvode Stepe' },
-    { name: 'Beograd Vukov spomenik' },
-    { name: 'Beograd Despota Stefana' },
+    { name: 'Novi Beograd Ušće', image: '/usceimg.jpg' },
+    { name: 'Beograd Vojvode Stepe', image: '/vozdovacimg.jpg' },
+    { name: 'Beograd Vukov spomenik', image: '/spomenikimg.jpg' },
+    { name: 'Beograd Despota Stefana', image: '/despotaimg.jpeg' },
   ]
 
   return (
@@ -31,10 +31,10 @@ export default function LokacijePage() {
       <Section className="bg-white">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Nase lokacije
+            Naše lokacije
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Izaberite medju nasim strateski postavljenim LED bilbordima
+            Izaberite medju našim strateški postavljenim LED bilbordima
           </p>
         </div>
 
@@ -43,15 +43,13 @@ export default function LokacijePage() {
           {/* AKTIVNE LOKACIJE (bez Zlatibora i Vrnjacke) */}
           {locationsData
             .filter(
-              (loc) =>
-                loc.city !== 'Zlatibor' &&
-                loc.city !== 'Vrnjacka Banja'
+              (loc) => loc.city !== 'Zlatibor'
             )
             .map((loc, index) => {
               const firstImg = loc.images?.[0]
               const imageSrc = firstImg?.startsWith('/') ? firstImg : firstImg === 'hero' ? '/hero.webp' : undefined
               const isOccupiedReal =
-                loc.name === 'Zemun Ugrinovacka'
+                loc.slug === 'zemun-ugrinovacka' || loc.slug === 'vrnjacka-banja-ulaz'
 
               return (
                 <LocationSection
@@ -82,12 +80,16 @@ export default function LokacijePage() {
               className="bg-white/90 rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                   
                   {/* 🔥 SLIKA DODATA */}
-                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
                     <Image
-                      src={loc.name === 'Vrnjacka Banja ulaz' ? '/vrnjackaimg.jpg' : '/zlatiborimg.webp'}
+                      src={
+                        loc.name === 'Vrnjacka Banja ulaz' ? '/vrnjci.png' :
+                        loc.name === 'Zemun Ugrinovačka' ? '/zemun.jpg' :
+                        '/zlatiborimg.webp'
+                      }
                       alt={loc.name}
                       fill
                       className="object-cover"
@@ -102,7 +104,7 @@ export default function LokacijePage() {
                   </div>
 
                 </div>
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'} pt-4 md:pt-0 flex flex-col`}>
+                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'} pt-4 md:pt-0 flex flex-col`}>
                   <span className="inline-flex items-center self-start rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 mb-2">
                     Trenutno zauzeto
                   </span>
@@ -126,6 +128,15 @@ export default function LokacijePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
                 <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
                   <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
+                    {loc.image && (
+                      <Image
+                        src={loc.image}
+                        alt={loc.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    )}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/45">
                       <p className="px-5 text-center text-sm sm:text-base font-semibold text-white leading-relaxed">
                         Lokacija je trenutno popunjena

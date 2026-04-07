@@ -72,7 +72,7 @@ export const locationsData: LocationItem[] = [
     vidljivost: 'Odlična iz više pravaca',
     recommendedFor: ['Brendiranje', 'Lansiranje proizvoda', 'Retail', 'Usluge'],
     intervalSec: 20,
-    images: ['/hero.webp', 'galerija-1', 'galerija-2'],
+    images: ['/juzni1.jpg', '/juzni2.jpg', '/juzni3.jpg', '/juzni4.jpg', '/hero.webp'],
   },
   {
     id: 'beograd-lokacija-2',
@@ -113,7 +113,7 @@ export const locationsData: LocationItem[] = [
     audience: 'Vozači, lokalno stanovništvo, poslovni subjekti',
     recommendedFor: ['Retail', 'Brendiranje', 'Lokalni biznisi'],
     intervalSec: 20,
-    images: ['hero', 'galerija-1', 'galerija-2'],
+    images: ['/zemun.jpg', 'galerija-1', 'galerija-2'],
   },
   {
     id: 'beograd-lokacija-3',
@@ -160,7 +160,7 @@ export const locationsData: LocationItem[] = [
     audience: 'Vozači i putnici koji dolaze u Vrnjačku Banju',
     recommendedFor: ['Brendiranje', 'Korporativne kampanje', 'Događaji'],
     intervalSec: 20,
-    images: ['hero', 'galerija-1', 'galerija-2'],
+    images: ['/vrnjci.png', 'galerija-1', 'galerija-2'],
   },
   {
     id: 'beograd-lokacija-4',

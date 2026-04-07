@@ -28,7 +28,7 @@ export function TopBar() {
           <div className="flex items-center gap-4 text-[13px] min-[412px]:text-[14px] text-white/90">
             <span className="text-white/90 whitespace-nowrap">Emitovanje 24/7</span>
             <span className="hidden md:inline text-white/60">•</span>
-            <span className="hidden md:inline">Standard paket: Ograničen broj slotova za mart</span>
+            <span className="hidden md:inline">Standard paket: Ograničen broj slotova za april</span>
           </div>
         </div>
       </div>
