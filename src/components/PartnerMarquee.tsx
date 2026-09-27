@@ -1,8 +1,8 @@
 const logos = [
   '/logo_exports/dori-berry.png',
   '/oohdigital.png',
-  '/logo_exports/grand-slot.png',
-  '/logo_exports/savanova.png',
+  '/grandslot.png',
+  '/savanova.png',
   '/trium.png',
 ]
 
@@ -19,19 +19,30 @@ export default function PartnerMarquee() {
           {duplicated.map((src, i) => (
             <div
               key={i}
-              className="shrink-0 rounded-xl border border-gray-200 bg-white px-10 py-5"
+              className="shrink-0 rounded-xl border border-gray-200 bg-white px-10 py-5 overflow-hidden"
             >
-              <img
-                src={src}
-                alt="partner"
-                className={`h-10 w-auto object-contain transition-transform ${
-                  src.toLowerCase().includes("savanova.png") ? "scale-[0.82] translate-y-[1px]" : ""
-                } ${
-                  src.toLowerCase().includes("trium.png") ? "scale-[1.39]" : ""
-                } ${
-                  src.toLowerCase().includes("oohdigital.png") ? "scale-[1.2]" : ""
-                }`}
-              />
+              {/* Render a fully custom Savanova card instead of the default image */}
+              {src.toLowerCase().includes("savanova.png") ? (
+                // Use same card wrapper and make the logo behave like other logos
+                <img
+                  src={src}
+                  alt="Savanova"
+                  className="h-10 w-auto object-contain transition-transform"
+                />
+              ) : (
+                /* Default rendering for other logos (unchanged) */
+                <img
+                  src={src}
+                  alt="partner"
+                  className={`h-10 w-auto object-contain transition-transform ${
+                    src.toLowerCase().includes("trium.png") ? "scale-[1.39]" : ""
+                  } ${
+                    src.toLowerCase().includes("oohdigital.png") ? "scale-[1.2]" : ""
+                  } ${
+                    src.toLowerCase().includes("grandslot.png") ? "scale-[1.2]" : ""
+                  }`}
+                />
+              )}
             </div>
           ))}
         </div>

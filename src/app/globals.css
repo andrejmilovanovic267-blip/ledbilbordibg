@@ -119,7 +119,7 @@
   }
 
   .animate-partner-scroll {
-    animation: partner-scroll 32s linear infinite;
+    animation: partner-scroll 40s linear infinite;
     will-change: transform;
   }
 
