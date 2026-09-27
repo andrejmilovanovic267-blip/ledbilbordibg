@@ -11,7 +11,7 @@ import { faqLandingItems } from '@/content/faq'
 
 const howItWorksSteps = [
   {
-    title: 'Izaberite lokaciju',
+    title: 'Izaberite lokacije',
     detail: 'Pošaljite nam željeni grad, zonu ili cilj kampanje. Predlažemo LED bilbord lokacije sa najboljom vidljivošću.',
   },
   {

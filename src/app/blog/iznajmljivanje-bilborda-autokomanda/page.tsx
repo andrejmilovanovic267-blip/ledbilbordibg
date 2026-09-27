@@ -68,7 +68,7 @@ const post = {
       title: 'Trajanje zakupa',
       variant: 'muted' as const,
       paragraphs: [
-        'Minimalni zakup iznosi 30 dana.',
+        'Minimalni zakup iznosi 7 dana.',
         'Ovaj period omogućava reklami da ostvari dovoljan broj ponavljanja i izgradi prepoznatljivost kod ciljane publike.',
         'Duže kampanje dodatno pojačavaju efekat oglašavanja, jer kontinuitet prikaza doprinosi jačem brendingu i boljem pamćenju poruke.',
         'Stabilna prisutnost na LED bilbordu često daje znatno bolje rezultate od kratkoročnih kampanja.',

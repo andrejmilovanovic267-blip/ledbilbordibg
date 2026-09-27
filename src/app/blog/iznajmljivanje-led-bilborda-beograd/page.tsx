@@ -65,7 +65,7 @@ const post = {
       title: 'Trajanje kampanje',
       variant: 'white' as const,
       paragraphs: [
-        'Minimalni period zakupa najčešće iznosi 30 dana, ali kampanja može trajati i znatno duže.',
+        'Minimalni period zakupa najčešće iznosi 7 dana, ali kampanja može trajati i znatno duže.',
         'Duže kampanje omogućavaju:',
       ],
       bullets: [

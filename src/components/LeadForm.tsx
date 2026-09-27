@@ -1,11 +1,22 @@
 'use client'
 
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useEffect, useRef, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { createLeadFormSchema, type LeadFormData } from '@/lib/validation'
-import { locationsData } from '@/lib/locationsData'
 import { cn } from '@/lib/utils'
+
+const regionOptions = [
+  'Novi Beograd',
+  'Zemun',
+  'Vračar',
+  'Stari grad',
+  'Savski venac',
+  'Karaburma',
+  'Autoput',
+  'Vrnjačka Banja',
+  'Kragujevac',
+]
 
 interface LeadFormProps {
   className?: string
@@ -31,26 +42,51 @@ export function LeadForm({
 }: LeadFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false)
+  const locationDropdownRef = useRef<HTMLDivElement | null>(null)
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    control,
+    watch,
   } = useForm<LeadFormData>({
     resolver: zodResolver(createLeadFormSchema(showLocationSelect)),
     defaultValues: {
-      locationInterest: defaultLocationId ?? '',
+      locationInterest: showLocationSelect ? (defaultLocationId ? [defaultLocationId] : []) : [],
       packageInterest: defaultPackageId ?? '',
     },
   })
 
+  const selectedRegions = watch('locationInterest') ?? []
+
+  useEffect(() => {
+    if (!isLocationDropdownOpen) return
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (locationDropdownRef.current && !locationDropdownRef.current.contains(event.target as Node)) {
+        setIsLocationDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handlePointerDown)
+    return () => document.removeEventListener('mousedown', handlePointerDown)
+  }, [isLocationDropdownOpen])
+
   const onSubmit = async (data: LeadFormData) => {
     setSubmitError(null)
+    const normalizedLocation = Array.isArray(data.locationInterest)
+      ? data.locationInterest.filter(Boolean)
+      : typeof data.locationInterest === 'string'
+        ? [data.locationInterest].filter(Boolean)
+        : []
+
     const payload = {
       name: data.fullName,
       email: data.email,
       phone: data.phone ?? '',
-      location: data.locationInterest ?? '',
+      location: normalizedLocation,
       package: data.packageInterest ?? '',
       message: data.message ?? '',
       website: data.website ?? '',
@@ -166,25 +202,97 @@ export function LeadForm({
         </div>
 
         {showLocationSelect && (
-          <div>
+          <div ref={locationDropdownRef}>
             <label htmlFor="locationInterest" className="block text-sm font-medium text-gray-700 mb-1">
-              Interesovanje za lokaciju *
+              Region oglašavanja *
             </label>
-            <select
-              id="locationInterest"
-              {...register('locationInterest')}
-              className="input"
-              required
-              aria-invalid={!!errors.locationInterest}
-              aria-describedby={errors.locationInterest ? 'locationInterest-error' : undefined}
-            >
-              <option value="">Izaberite lokaciju</option>
-              {locationsData.map((loc) => (
-                <option key={loc.id} value={loc.id}>
-                  {loc.name}
-                </option>
-              ))}
-            </select>
+            <Controller
+              name="locationInterest"
+              control={control}
+              render={({ field }) => {
+                const currentSelection = Array.isArray(field.value) ? field.value : []
+
+                const toggleRegion = (region: string) => {
+                  const nextSelection = currentSelection.includes(region)
+                    ? currentSelection.filter((item) => item !== region)
+                    : [...currentSelection, region]
+
+                  field.onChange(nextSelection)
+                }
+
+                return (
+                  <div className="relative">
+                    <div
+                      id="locationInterest"
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault()
+                          setIsLocationDropdownOpen((prev) => !prev)
+                        }
+                      }}
+                      onClick={() => setIsLocationDropdownOpen((prev) => !prev)}
+                      className="input flex min-h-[42px] cursor-pointer items-center justify-between gap-2 text-left"
+                      aria-expanded={isLocationDropdownOpen}
+                    >
+                      <div className="flex min-w-0 flex-wrap items-center gap-1">
+                        {currentSelection.length > 0 ? (
+                          currentSelection.map((region) => (
+                            <span
+                              key={region}
+                              className="inline-flex items-center gap-1 rounded bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700"
+                            >
+                              <span>{region}</span>
+                              <button
+                                type="button"
+                                onClick={(event) => {
+                                  event.stopPropagation()
+                                  toggleRegion(region)
+                                }}
+                                className="leading-none text-blue-700 hover:text-blue-900"
+                                aria-label={`Ukloni ${region}`}
+                              >
+                                ×
+                              </button>
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-gray-500">Odaberite region(e) oglašavanja</span>
+                        )}
+                      </div>
+                      <span className="shrink-0 text-gray-500">{isLocationDropdownOpen ? '▴' : '▾'}</span>
+                    </div>
+
+                    {isLocationDropdownOpen && (
+                      <div className="absolute z-20 mt-1 w-full rounded-md border border-gray-200 bg-white shadow-lg">
+                        {regionOptions.map((region) => {
+                          const isSelected = currentSelection.includes(region)
+
+                          return (
+                            <button
+                              key={region}
+                              type="button"
+                              onClick={(event) => {
+                                event.preventDefault()
+                                event.stopPropagation()
+                                toggleRegion(region)
+                              }}
+                              className={`flex w-full items-center justify-between px-3 py-2 text-left text-sm ${
+                                isSelected ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'
+                              }`}
+                            >
+                              <span>{region}</span>
+                              {isSelected && <span className="text-blue-700">✓</span>}
+                            </button>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                )
+              }}
+            />
             {errors.locationInterest && (
               <p id="locationInterest-error" className="mt-1 text-sm text-red-600">
                 {errors.locationInterest.message}
@@ -206,9 +314,9 @@ export function LeadForm({
             aria-describedby={errors.packageInterest ? 'packageInterest-error' : undefined}
           >
             <option value="">Izaberite paket</option>
-            <option value="BASIC">BASIC (199€ mesečno)</option>
-            <option value="STANDARD">STANDARD (249€ mesečno)</option>
-            <option value="PREMIUM">PREMIUM (399€ mesečno)</option>
+            <option value="BASIC">BASIC</option>
+            <option value="STANDARD">STANDARD</option>
+            <option value="PREMIUM">PREMIUM</option>
           </select>
           {errors.packageInterest && (
             <p id="packageInterest-error" className="mt-1 text-sm text-red-600">

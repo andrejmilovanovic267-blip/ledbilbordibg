@@ -20,7 +20,7 @@ export const faqLandingItems: FaqItem[] = [
   },
   {
     q: 'Koliko traje minimalni zakup?',
-    a: 'Minimalni zakup LED bilborda traje 30 dana. Ovaj period omogućava stabilnu vidljivost i kontinuitet reklamne kampanje.',
+    a: 'Minimalni zakup LED bilborda traje 7 dana. Ovaj period omogućava stabilnu vidljivost i kontinuitet reklamne kampanje.',
   },
   {
     q: 'Kako funkcioniše emitovanje reklame?',
@@ -93,7 +93,7 @@ export const faqPricingItems: FaqItem[] = [
   },
   {
     q: 'Koliko traje minimalni zakup?',
-    a: 'Minimalni zakup LED bilborda traje 30 dana. Ovaj period omogućava stabilnu vidljivost i kontinuitet reklamne kampanje.',
+    a: 'Minimalni zakup LED bilborda traje 7 dana. Ovaj period omogućava stabilnu vidljivost i kontinuitet reklamne kampanje.',
   },
   {
     q: 'Sa koliko firmi se deli bilbord?',

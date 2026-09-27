@@ -68,7 +68,7 @@ const post = {
       title: 'Koliko traje kampanja?',
       variant: 'muted' as const,
       paragraphs: [
-        'Minimalni zakup iznosi 30 dana.',
+        'Minimalni zakup iznosi 7 dana.',
         'Duže kampanje omogućavaju jači efekat brendinga i bolju isplativost investicije.',
       ],
     },

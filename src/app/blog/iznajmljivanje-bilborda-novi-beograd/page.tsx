@@ -59,7 +59,7 @@ const post = {
       title: 'Koliko traje zakup?',
       variant: 'white' as const,
       paragraphs: [
-        'Minimalni zakup najčešće iznosi 30 dana.',
+        'Minimalni zakup najčešće iznosi 7 dana.',
         'Duže kampanje omogućavaju:',
       ],
       bullets: [

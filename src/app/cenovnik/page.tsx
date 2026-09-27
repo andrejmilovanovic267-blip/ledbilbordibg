@@ -11,7 +11,7 @@ import { faqPricingItems } from '@/content/faq'
 
 const howItWorksSteps = [
   {
-    title: 'Izaberite lokaciju',
+    title: 'Izaberite lokacije',
     detail: 'Pošaljite nam željeni grad, zonu ili cilj kampanje. Predlažemo LED bilbord lokacije sa najboljom vidljivošću.',
   },
   {
@@ -50,18 +50,12 @@ export default function CenovnikPage() {
               key={index}
               className={`card p-8 flex flex-col h-full ${index === 1 ? 'ring-2 ring-blue-500' : ''}`}
             >
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4 text-center">
                 {packageItem.name}
               </h3>
               {packageItem.badge && (
                 <p className="text-sm font-medium text-blue-600 mb-2">{packageItem.badge}</p>
               )}
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-gray-900">
-                  {packageItem.price}
-                </span>
-                <span className="text-gray-600 ml-2">/{packageItem.period}</span>
-              </div>
               <div className="flex-1 min-h-0">
                 <ul className="space-y-3">
                   {packageItem.features.map((feature, featureIndex) => {

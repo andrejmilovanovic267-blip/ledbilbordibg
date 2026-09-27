@@ -47,7 +47,8 @@ export const siteConfig = {
       period: 'mesečno',
       badge: undefined as string | undefined,
       features: [
-        { text: '2 lokacije', negative: false, emphasize: true },
+        { text: 'Cela mreža na raspolaganju', negative: false, emphasize: true },
+        { text: 'Više lokacija', negative: false, emphasize: true },
         { text: '24/7 prikaz', negative: false },
         { text: 'Visoka rezolucija', negative: false },
         { text: '1 profesionalni dizajn mesečno', negative: false, emphasize: true },

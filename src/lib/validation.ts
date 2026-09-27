@@ -12,8 +12,8 @@ const baseLeadFormSchema = z.object({
 export function createLeadFormSchema(showLocationSelect: boolean) {
   return baseLeadFormSchema.extend({
     locationInterest: showLocationSelect
-      ? z.string().min(1, 'Odaberite lokaciju.')
-      : z.string().optional(),
+      ? z.array(z.string()).min(1, 'Odaberite region(e) oglašavanja.')
+      : z.array(z.string()).optional(),
     packageInterest: z.string().min(1, 'Odaberite paket.'),
   })
 }

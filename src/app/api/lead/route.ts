@@ -16,12 +16,19 @@ export async function POST(request: Request) {
       name,
       email,
       phone = '',
-      location = '',
+      location = [],
       package: pkg = '',
       message = '',
       website = '',
       pageUrl = '',
     } = body
+
+    const selectedRegions = Array.isArray(location)
+      ? location.filter((item): item is string => typeof item === 'string' && item.trim().length > 0).map((item) => item.trim())
+      : typeof location === 'string' && location.trim().length > 0
+        ? [location.trim()]
+        : []
+    const locationText = selectedRegions.length > 0 ? selectedRegions.join(', ') : ''
 
     // Honeypot: ako website nije prazan → bot, vrati ok
     if (website && String(website).trim() !== '') {
@@ -82,7 +89,7 @@ export async function POST(request: Request) {
     <tr><td>Ime</td><td>${String(name).trim()}</td></tr>
     <tr><td>Email</td><td>${String(email).trim()}</td></tr>
     <tr><td>Telefon</td><td>${String(phone).trim() || '-'}</td></tr>
-    <tr><td>Lokacija</td><td>${String(location).trim() || '-'}</td></tr>
+    <tr><td>Region oglašavanja</td><td>${locationText || '-'}</td></tr>
     <tr><td>Paket</td><td>${String(pkg).trim() || '-'}</td></tr>
     <tr><td>Poruka</td><td>${String(message).trim() || '-'}</td></tr>
     ${pageUrlVal ? `<tr><td>Stranica</td><td><a href="${pageUrlVal}">${pageUrlVal}</a></td></tr>` : ''}
