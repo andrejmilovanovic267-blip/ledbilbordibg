@@ -179,16 +179,18 @@ export default async function LocationDetailPage({ params }: PageProps) {
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Dimenzije ekrana</dt>
-                    <dd className="text-gray-900">Standardni gradski LED format</dd>
+                    <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '4 × 3 m' : 'Standardni gradski LED format'}</dd>
                   </div>
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Rezolucija</dt>
-                    <dd className="text-gray-900">Visoka rezolucija (HD / 4K)</dd>
+                    <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '768 × 576 px' : 'Visoka rezolucija (HD / 4K)'}</dd>
                   </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Format materijala</dt>
-                    <dd className="text-gray-900">JPG, PNG ili MP4</dd>
-                  </div>
+                  {location.slug !== 'beograd-lokacija-1' && (
+                    <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                      <dt className="text-sm font-medium text-gray-500 mb-1">Format materijala</dt>
+                      <dd className="text-gray-900">JPG, PNG ili MP4</dd>
+                    </div>
+                  )}
                   <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <dt className="text-sm font-medium text-gray-500 mb-1">Trajanje prikaza</dt>
                     <dd className="text-gray-900">8 sekundi</dd>
@@ -197,10 +199,12 @@ export default async function LocationDetailPage({ params }: PageProps) {
                     <dt className="text-sm font-medium text-gray-500 mb-1">Interval prikaza</dt>
                     <dd className="text-gray-900">64 sekunde</dd>
                   </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Vidljivost</dt>
-                    <dd className="text-gray-900">Optimizovana za dnevne i noćne uslove</dd>
-                  </div>
+                  {location.slug !== 'beograd-lokacija-1' && (
+                    <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                      <dt className="text-sm font-medium text-gray-500 mb-1">Vidljivost</dt>
+                      <dd className="text-gray-900">Optimizovana za dnevne i noćne uslove</dd>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="max-w-5xl mx-auto text-center">
