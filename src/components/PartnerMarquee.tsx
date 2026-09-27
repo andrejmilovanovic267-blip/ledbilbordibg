@@ -19,7 +19,7 @@ export default function PartnerMarquee() {
           {duplicated.map((src, i) => (
             <div
               key={i}
-              className="shrink-0 rounded-xl border border-gray-200 bg-white px-10 py-5 overflow-hidden"
+              className="shrink-0 rounded-xl border border-gray-200 bg-white px-10 py-5 overflow-hidden min-w-[170px]"
             >
               {/* Render a fully custom Savanova card instead of the default image */}
               {src.toLowerCase().includes("savanova.png") ? (
