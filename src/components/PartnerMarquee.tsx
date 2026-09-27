@@ -1,7 +1,9 @@
 const logos = [
   '/logo_exports/dori-berry.png',
+  '/oohdigital.png',
   '/logo_exports/grand-slot.png',
   '/logo_exports/savanova.png',
+  '/trium.png',
 ]
 
 export default function PartnerMarquee() {
@@ -24,6 +26,10 @@ export default function PartnerMarquee() {
                 alt="partner"
                 className={`h-10 w-auto object-contain transition-transform ${
                   src.toLowerCase().includes("savanova.png") ? "scale-[0.82] translate-y-[1px]" : ""
+                } ${
+                  src.toLowerCase().includes("trium.png") ? "scale-[1.39]" : ""
+                } ${
+                  src.toLowerCase().includes("oohdigital.png") ? "scale-[1.2]" : ""
                 }`}
               />
             </div>

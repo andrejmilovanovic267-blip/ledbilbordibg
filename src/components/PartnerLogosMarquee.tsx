@@ -4,6 +4,7 @@ const partnerLogos = [
   { src: '/logo_exports/dori-berry.png', alt: 'Dori Berry' },
   { src: '/logo_exports/grand-slot.png', alt: 'Grand Slot' },
   { src: '/logo_exports/savanova.png', alt: 'Savanova' },
+  { src: '/trium.png', alt: 'Trium' },
 ]
 
 const duplicated = [...partnerLogos, ...partnerLogos]
@@ -19,13 +20,21 @@ export function PartnerLogosMarquee() {
             key={`${logo.alt}-${i}`}
             className="h-20 min-w-[170px] px-6 flex items-center justify-center rounded-xl border border-gray-200/70 bg-white shrink-0"
           >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={180}
-              height={80}
-              className="max-h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
-            />
+            {logo.src === '/trium.png' ? (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-12 w-auto object-contain opacity-100 transition"
+              />
+            ) : (
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={180}
+                height={80}
+                className="max-h-12 w-auto object-contain opacity-80 hover:opacity-100 transition"
+              />
+            )}
           </div>
         ))}
       </div>
