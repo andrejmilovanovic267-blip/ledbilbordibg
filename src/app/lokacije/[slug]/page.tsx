@@ -129,16 +129,12 @@ export default async function LocationDetailPage({ params }: PageProps) {
                         <dd className="font-medium text-gray-900">24/7</dd>
                       </div>
                       <div>
-                        <dt className="text-gray-500">Interval prikaza</dt>
-                        <dd className="font-medium text-gray-900">64 sekunde</dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Mesečni broj prikazivanja</dt>
-                        <dd className="font-medium text-gray-900">Preko 40.000</dd>
-                      </div>
-                      <div>
                         <dt className="text-gray-500">Trajanje reklame</dt>
                         <dd className="font-medium text-gray-900">8 sekundi</dd>
+                      </div>
+                      <div>
+                        <dt className="text-gray-500">Interval prikaza</dt>
+                        <dd className="font-medium text-gray-900">64 sekunde</dd>
                       </div>
                       {location.vidljivost && (
                         <div>
@@ -146,10 +142,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
                           <dd className="font-medium text-gray-900">{location.vidljivost}</dd>
                         </div>
                       )}
-                      <div>
-                        <dt className="text-gray-500">Visoka rezolucija</dt>
-                        <dd className="font-medium text-gray-900">Da</dd>
-                      </div>
+                      {/* Removed Mesečni broj prikazivanja and Visoka rezolucija as requested */}
                     </dl>
                   </div>
                 </div>
