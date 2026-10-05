@@ -4,6 +4,8 @@ const logos = [
   '/grandslot.png',
   '/savanova.png',
   '/trium.png',
+  '/diplomat.png',
+  '/bw.png',
 ]
 
 export default function PartnerMarquee() {
@@ -33,13 +35,26 @@ export default function PartnerMarquee() {
                 /* Default rendering for other logos (unchanged) */
                 <img
                   src={src}
-                  alt="partner"
+                  style={
+                    src.toLowerCase().includes("bw.png")
+                      ? { width: 144, height: 48, margin: "-1.61px -10.24px -6.39px -13.76px" }
+                      : undefined
+                  }
+                  alt={
+                    src.toLowerCase().includes("diplomat.png")
+                      ? "BG Diplomat"
+                      : src.toLowerCase().includes("bw.png")
+                        ? "BV Belgrade Waterfront"
+                        : "partner"
+                  }
                   className={`h-10 w-auto object-contain transition-transform ${
                     src.toLowerCase().includes("trium.png") ? "scale-[1.39]" : ""
                   } ${
                     src.toLowerCase().includes("oohdigital.png") ? "scale-[1.2]" : ""
                   } ${
                     src.toLowerCase().includes("grandslot.png") ? "scale-[1.2]" : ""
+                  } ${
+                    src.toLowerCase().includes("diplomat.png") ? "scale-[1.1]" : ""
                   }`}
                 />
               )}
