@@ -1,13 +1,23 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { Section } from '@/components/Section'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { CTAReadySection } from '@/components/CTAReadySection'
 import { LocationSection } from '@/components/LocationSection'
 import { MapSection } from '@/components/MapSection'
-import { locationsData } from '@/lib/locationsData'
+import { locationsData, type LocationItem } from '@/lib/locationsData'
+import { classicBillboards } from '@/lib/classicBillboardsData'
+
+const priorityLocationSlugs = [
+  'led-bilbord-bulevar-nikole-tesle',
+  'mega-led-bilbordi-tosin-bunar-zemunska',
+  'led-bilbord-autoput-beograd-konjarnik',
+  'beograd-lokacija-1',
+  'led-bilbord-ledine-surcinska',
+  'led-bilbord-ledine-skretanje-za-aerodrom',
+  'led-bilbord-lestane-kruzni-put',
+]
 
 export default function LokacijePage() {
   const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null)
@@ -19,12 +29,25 @@ export default function LokacijePage() {
     document.getElementById('mapa-lokacija')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const unavailableLocations = [
-    { name: 'Novi Beograd Ušće', image: '/usceimg.jpg' },
-    { name: 'Beograd Vojvode Stepe', image: '/vozdovacimg.jpg' },
-    { name: 'Beograd Vukov spomenik', image: '/spomenikimg.jpg' },
-    { name: 'Beograd Despota Stefana', image: '/despotaimg.jpeg' },
-  ]
+  const locationCards: (
+    | LocationItem
+    | (typeof classicBillboards)[number]
+  )[] = locationsData
+    .flatMap((loc) =>
+      loc.slug === 'beograd-lokacija-3'
+        ? [loc, ...classicBillboards]
+        : [loc]
+    )
+    .map((loc, index) => ({ loc, index }))
+    .sort((a, b) => {
+      const aPriority = priorityLocationSlugs.indexOf(a.loc.slug)
+      const bPriority = priorityLocationSlugs.indexOf(b.loc.slug)
+      const aOrder = aPriority === -1 ? priorityLocationSlugs.length : aPriority
+      const bOrder = bPriority === -1 ? priorityLocationSlugs.length : bPriority
+
+      return aOrder - bOrder || a.index - b.index
+    })
+    .map(({ loc }) => loc)
 
   return (
     <>
@@ -40,21 +63,34 @@ export default function LokacijePage() {
 
         <div className="w-full lg:w-[80%] lg:mx-auto space-y-10 mb-16">
 
-          {/* AKTIVNE LOKACIJE (bez Zlatibora i Vrnjacke) */}
-          {locationsData
-            .filter(
-              (loc) => loc.city !== 'Zlatibor'
-            )
-            .map((loc, index) => {
+          {locationCards.map((loc, index) => {
+              if ('metaDescription' in loc) {
+                return (
+                  <LocationSection
+                    key={loc.slug}
+                    imageSide={index % 2 === 0 ? 'left' : 'right'}
+                    title={loc.name}
+                    slug={loc.slug}
+                    description={loc.cardDescription}
+                    prednosti={loc.cardBenefits}
+                    showMapLabel
+                    mapLabelText="Prikaži na mapi"
+                    locationId={loc.slug}
+                    lat={loc.lat}
+                    lng={loc.lng}
+                    onShowOnMap={handleShowOnMap}
+                  />
+                )
+              }
+
               const firstImg = loc.images?.[0]
               const imageSrc = firstImg?.startsWith('/') ? firstImg : firstImg === 'hero' ? '/hero.webp' : undefined
-              const isOccupiedReal =
-                loc.slug === 'zemun-ugrinovacka' || loc.slug === 'vrnjacka-banja-ulaz'
+              const isOccupiedReal = loc.slug === 'vrnjacka-banja-ulaz'
 
               return (
                 <LocationSection
                   key={loc.id}
-                  imageSide={index % 2 === 0 ? 'right' : 'left'}
+                  imageSide={index % 2 === 0 ? 'left' : 'right'}
                   title={loc.name}
                   description={loc.description}
                   slug={loc.slug}
@@ -71,96 +107,6 @@ export default function LokacijePage() {
               )
             })}
 
-          {/* ZAUZETE: VRNJACKA + ZLATIBOR (NA KRAJU) */}
-          {[
-            { name: 'Zlatibor Centar' },
-          ].map((loc, index) => (
-            <article
-              key={loc.name}
-              className="bg-white/90 rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                  
-                  {/* 🔥 SLIKA DODATA */}
-                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
-                    <Image
-                      src={
-                        loc.name === 'Vrnjacka Banja ulaz' ? '/vrnjci.png' :
-                        loc.name === 'Zemun Ugrinovačka' ? '/zemun.jpg' :
-                        '/zlatiborimg.webp'
-                      }
-                      alt={loc.name}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/45">
-                      <p className="px-5 text-center text-sm sm:text-base font-semibold text-white leading-relaxed">
-                        Lokacija je trenutno popunjena
-                        <br />
-                        Kontaktirajte nas za sledeci slobodan termin
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'} pt-4 md:pt-0 flex flex-col`}>
-                  <span className="inline-flex items-center self-start rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 mb-2">
-                    Trenutno zauzeto
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
-                    {loc.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-0">
-                    Lokacija je trenutno zauzeta. Kontaktirajte nas za informacije o narednoj dostupnosti.
-                  </p>
-                </div>
-              </div>
-            </article>
-          ))}
-
-          {/* OSTALE PLANIRANE */}
-          {unavailableLocations.map((loc, index) => (
-            <article
-              key={loc.name}
-              className="bg-white/90 rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                  <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
-                    {loc.image && (
-                      <Image
-                        src={loc.image}
-                        alt={loc.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    )}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/45">
-                      <p className="px-5 text-center text-sm sm:text-base font-semibold text-white leading-relaxed">
-                        Lokacija je trenutno popunjena
-                        <br />
-                        Kontaktirajte nas za sledeci slobodan termin
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className={`min-w-0 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'} pt-4 md:pt-0 flex flex-col`}>
-                  <span className="inline-flex items-center self-start rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 mb-2">
-                    Trenutno zauzeto
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 mt-0 group-hover:text-blue-600 transition-colors">
-                    {loc.name}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-0">
-                    Lokacija je trenutno zauzeta. Kontaktirajte nas za informacije o narednoj dostupnosti.
-                  </p>
-                </div>
-              </div>
-            </article>
-          ))}
-
         </div>
       </Section>
 
@@ -173,9 +119,21 @@ export default function LokacijePage() {
           </div>
 
           <MapSection
-            locations={locationsData.filter(
-              (loc) => loc.city !== 'Vrnjacka Banja' && loc.city !== 'Zlatibor'
-            )}
+            locations={[
+              ...locationsData.map((location) => ({
+                ...location,
+                ...(location.googleMapsUrl ? { googleMapsUrl: location.googleMapsUrl } : {}),
+              })),
+              ...classicBillboards.map(({ slug, name, description, lat, lng }) => ({
+                id: slug,
+                name,
+                description,
+                lat,
+                lng,
+                slug,
+                googleMapsUrl: `https://www.google.com/maps?q=${lat},${lng}`,
+              })),
+            ]}
             selectedCoords={selectedCoords}
             selectedLocationId={selectedLocationId}
           />

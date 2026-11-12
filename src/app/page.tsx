@@ -8,6 +8,15 @@ import { LedAdvantagesSection } from '@/components/LedAdvantagesSection'
 import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
 import PartnerMarquee from '@/components/PartnerMarquee'
 import { faqLandingItems } from '@/content/faq'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata({
+  title: 'LED bilbordi Beograd',
+  description:
+    'Iznajmljivanje LED bilborda u Beogradu za brendiranje, promociju i oglašavanje na strateškim lokacijama.',
+  path: '/',
+  image: '/Heornova.png',
+})
 
 const howItWorksSteps = [
   {

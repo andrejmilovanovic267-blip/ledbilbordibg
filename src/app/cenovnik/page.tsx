@@ -8,6 +8,15 @@ import { ProcessStepsAnimated } from '@/components/ProcessStepsAnimated'
 import { LocationsCtaSection } from '@/components/LocationsCtaSection'
 import { FaqAccordion } from '@/components/FaqAccordion'
 import { faqPricingItems } from '@/content/faq'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata({
+  title: 'Cenovnik iznajmljivanja LED bilborda',
+  description:
+    'Pregled paketa i cena za iznajmljivanje LED bilborda, uz tehničku podršku i mogućnost izmena kampanje.',
+  path: '/cenovnik',
+  image: '/Heornova.png',
+})
 
 const howItWorksSteps = [
   {

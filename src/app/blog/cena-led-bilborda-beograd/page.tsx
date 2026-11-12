@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Cena LED bilborda u Beogradu | LED Bilbordi',
+export const metadata = createPageMetadata({
+  title: 'Cena LED bilborda u Beogradu',
   description:
     'Saznajte od čega zavisi cena LED bilborda u Beogradu i kako se formira budžet kampanje. Kampanje već od 199€ mesečno.',
-}
+  path: '/blog/cena-led-bilborda-beograd',
+  type: 'article',
+})
 
 const post = {
   title: 'Cena LED bilborda u Beogradu: od čega zavisi i kako se računa',

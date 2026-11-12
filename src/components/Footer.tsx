@@ -70,12 +70,6 @@ export function Footer() {
             <Link href="/blog/iznajmljivanje-led-bilborda-beograd" className="text-sm text-gray-600 hover:text-gray-900">
               Iznajmljivanje LED bilborda u Beogradu
             </Link>
-            <Link href="/blog/iznajmljivanje-bilborda-novi-beograd" className="text-sm text-gray-600 hover:text-gray-900">
-              Iznajmljivanje LED bilborda Novi Beograd
-            </Link>
-            <Link href="/blog/iznajmljivanje-bilborda-zemun" className="text-sm text-gray-600 hover:text-gray-900">
-              Iznajmljivanje LED bilborda Zemun
-            </Link>
             <Link href="/blog/iznajmljivanje-bilborda-autokomanda" className="text-sm text-gray-600 hover:text-gray-900">
               Iznajmljivanje LED bilborda Autokomanda
             </Link>

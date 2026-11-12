@@ -5,8 +5,17 @@ import { Footer } from '@/components/Footer'
 import { siteConfig } from '@/lib/siteConfig'
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: 'Iznajmljivanje LED bilborda',
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: {
+    default: 'LED bilbordi Beograd | Iznajmljivanje bilborda',
+    template: '%s | LED Bilbordi Beograd',
+  },
+  description:
+    'Iznajmljivanje LED bilborda i oglasnog prostora na lokacijama u Beogradu i Srbiji.',
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: '/LEDBilbordiBG3.svg',
   },

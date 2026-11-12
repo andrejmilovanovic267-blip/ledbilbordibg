@@ -46,7 +46,7 @@ export const faqLandingItems: FaqItem[] = [
     q: 'Koje lokacije su dostupne?',
     a: (
       <>
-        LED bilbordi su dostupni na atraktivnim lokacijama poput Zemuna i Autokomande. Pregled svih{' '}
+        LED bilbordi su dostupni na atraktivnim lokacijama poput Južnog bulevara, Vrnjačke Banje i autoputa E-75. Pregled svih{' '}
         <Link href="/lokacije" className="link-inline">
           dostupnih lokacija
         </Link>{' '}
@@ -127,8 +127,7 @@ export const faqPricingItems: FaqItem[] = [
         <Link href="/lokacije" className="link-inline">
           pregled lokacija
         </Link>{' '}
-        sa opisa, slikama i karakteristikama. Nudimo lokacije u Zemunu, na Autokomandi, Južnom bulevaru i
-        druge atraktivne tačke u Beogradu.
+        sa opisa, slikama i karakteristikama. Nudimo lokacije na Južnom bulevaru, u Vrnjačkoj Banji i uz autoput E-75.
       </>
     ),
   },

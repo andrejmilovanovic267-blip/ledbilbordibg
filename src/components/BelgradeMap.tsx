@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css'
 import { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
-import type { LocationItem } from '@/lib/locationsData'
+import type { MapLocation } from '@/components/MapSection'
 
 const BELGRADE_CENTER: [number, number] = [44.8176, 20.4633]
 
@@ -46,7 +46,7 @@ function MapController({
 }
 
 interface BelgradeMapProps {
-  locations: LocationItem[]
+  locations: MapLocation[]
   selectedCoords: { lat: number; lng: number } | null
   selectedLocationId: string | null
 }
@@ -86,7 +86,27 @@ export function BelgradeMap({ locations, selectedCoords, selectedLocationId }: B
           <Popup>
             <div className="text-sm">
               <p className="font-semibold text-gray-900">{loc.name}</p>
-              <p className="text-gray-600 mt-1">LED bilbord na frekventnoj gradskoj lokaciji.</p>
+              <p className="text-gray-600 mt-1">
+                {loc.description ?? 'Reklamna lokacija za oglašavanje.'}
+              </p>
+              {loc.slug && (
+                <a
+                  href={`/lokacije/${loc.slug}`}
+                  className="mt-2 inline-block font-medium text-blue-600 hover:text-blue-700 hover:underline"
+                >
+                  Pogledaj lokaciju
+                </a>
+              )}
+              {loc.googleMapsUrl && (
+                <a
+                  href={loc.googleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-1 block font-medium text-blue-600 hover:text-blue-700 hover:underline"
+                >
+                  Otvori u Google Maps
+                </a>
+              )}
             </div>
           </Popup>
         </Marker>

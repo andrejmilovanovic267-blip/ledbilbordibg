@@ -3,6 +3,14 @@ import { Section } from '@/components/Section'
 import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { CTAReadySection } from '@/components/CTAReadySection'
 import { siteConfig } from '@/lib/siteConfig'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata({
+  title: 'Kontakt za zakup bilborda',
+  description:
+    'Pošaljite upit za zakup LED ili klasičnog bilborda i dobijte informacije o lokaciji, dostupnosti i ponudi.',
+  path: '/kontakt',
+})
 
 export default function KontaktPage() {
   return (

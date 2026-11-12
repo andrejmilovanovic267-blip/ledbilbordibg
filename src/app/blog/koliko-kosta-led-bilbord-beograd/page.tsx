@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Koliko košta iznajmljivanje LED bilborda u Beogradu? | LED Bilbordi',
+export const metadata = createPageMetadata({
+  title: 'Koliko košta iznajmljivanje LED bilborda u Beogradu?',
   description: 'Okvirni cenovni raspon LED bilborda u Beogradu, faktori koji utiču na cenu i kako dobiti tačnu ponudu. Od 200€ do 1.500€ mesečno.',
-}
+  path: '/blog/koliko-kosta-led-bilbord-beograd',
+  type: 'article',
+})
 
 const post = {
   title: 'Koliko košta iznajmljivanje LED bilborda u Beogradu?',

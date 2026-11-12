@@ -5,12 +5,14 @@ import { ImageIcon, MapPin } from 'lucide-react'
 interface LocationSectionProps {
   imageSide?: 'left' | 'right'
   title: string
-  description: string
-  slug: string
+  description?: string
+  slug?: string
   imageSrc?: string
   imageAlt?: string
   imagePriority?: boolean
   prednosti?: string[]
+  showMapLabel?: boolean
+  mapLabelText?: string
   locationId?: string
   lat?: number
   lng?: number
@@ -27,6 +29,8 @@ export function LocationSection({
   imageAlt,
   imagePriority,
   prednosti,
+  showMapLabel = false,
+  mapLabelText = 'Prikazi na mapi',
   locationId,
   lat,
   lng,
@@ -34,22 +38,9 @@ export function LocationSection({
   occupied = false,
 }: LocationSectionProps) {
 
-  // ✅ CENTRALNA LOGIKA (slug = jedini izvor istine)
-  const isHidden = slug === 'vrnjacka-banja-ulaz'
-  const isZemun = slug === 'zemun-ugrinovacka' || slug === 'beograd-lokacija-2' || slug === 'beograd-lokacija-3'
-
-  // ❌ Sakrij Vrnjačku potpuno
-  if (isHidden) return null
-
   // 🔥 AUTOMATSKO MAPIRANJE SLIKA (takođe preko slug-a)
   const getImageBySlug = () => {
-    if (slug === 'despota') return '/despotaimg.jpeg'
-    if (slug === 'usce') return '/usceimg.jpg'
-    if (slug === 'vozdovac') return '/vozdovacimg.jpg'
-    if (slug === 'spomenik') return '/spomenikimg.jpg'
-    if (slug === 'zemun-ugrinovacka') return '/zemun.jpg'
     if (slug === 'vrnjacka-banja-ulaz') return '/vrnjackaimg.jpg'
-    if (slug === 'zlatibor') return '/zlatiborimg.webp'
 
     return imageSrc
   }
@@ -61,7 +52,7 @@ export function LocationSection({
   const canShowOnMap = locationId != null && lat != null && lng != null && onShowOnMap
 
   const content = (
-    <article className={`bg-white rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out ${!isZemun ? 'cursor-pointer' : ''}`}>
+    <article className={`bg-white rounded-lg border border-gray-200 overflow-hidden group hover:-translate-y-1 transition-all duration-300 ease-out ${slug ? 'cursor-pointer' : ''}`}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6 md:items-start p-4 sm:p-6">
         
         <div className={`min-w-0 ${imageOrder}`}>
@@ -101,9 +92,11 @@ export function LocationSection({
             {title}
           </h3>
 
-          <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            {description}
-          </p>
+          {description && (
+            <p className="text-sm text-gray-600 leading-relaxed mb-4">
+              {description}
+            </p>
+          )}
 
           {prednosti && prednosti.length > 0 && (
             <div>
@@ -121,6 +114,15 @@ export function LocationSection({
             </div>
           )}
 
+          {showMapLabel && !canShowOnMap && (
+            <div className="mt-4">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600">
+                <MapPin className="w-4 h-4" aria-hidden="true" />
+                {mapLabelText}
+              </span>
+            </div>
+          )}
+
           {canShowOnMap && (
             <div className="mt-4">
               <button
@@ -133,7 +135,7 @@ export function LocationSection({
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 hover:underline"
               >
                 <MapPin className="w-4 h-4" />
-                Prikazi na mapi
+                {mapLabelText}
               </button>
             </div>
           )}
@@ -143,8 +145,7 @@ export function LocationSection({
     </article>
   )
 
-  // 🔒 Ako je Zemun → nema linka
-  if (isZemun) return content
+  if (!slug) return content
 
   // ✅ sve ostalo → ima link
   return (

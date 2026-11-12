@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import { BlogPostLayout } from '@/components/blog/BlogPostLayout'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata = {
-  title: 'Iznajmljivanje LED bilborda u Beogradu | Kompletan vodič',
+export const metadata = createPageMetadata({
+  title: 'Iznajmljivanje LED bilborda u Beogradu: kompletan vodič',
   description:
     'Kompletan vodič za iznajmljivanje LED bilborda u Beogradu. Saznajte kako funkcioniše zakup, koje su prednosti i kako izabrati lokaciju.',
-}
+  path: '/blog/iznajmljivanje-led-bilborda-beograd',
+  type: 'article',
+})
 
 const post = {
   title: 'Iznajmljivanje LED bilborda u Beogradu: kompletan vodič',

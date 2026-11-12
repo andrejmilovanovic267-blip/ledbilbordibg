@@ -6,7 +6,13 @@ import { SharedLeadFormSection } from '@/components/SharedLeadFormSection'
 import { MapSection } from '@/components/MapSection'
 import { LocationGallery } from '@/components/LocationGallery'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
+import { ClassicBillboardDetailPage } from '@/components/ClassicBillboardDetailPage'
+import {
+  classicBillboards,
+  getClassicBillboardBySlug,
+} from '@/lib/classicBillboardsData'
 import { Check } from 'lucide-react'
+import { createPageMetadata } from '@/lib/seo'
 
 const EMPHASIS_KEYWORDS: Record<string, string[]> = {
   'beograd-lokacija-1': [
@@ -38,23 +44,47 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return locationsData.map((loc) => ({ slug: loc.slug }))
+  return [
+    ...locationsData.map((loc) => ({ slug: loc.slug })),
+    ...classicBillboards.map((billboard) => ({ slug: billboard.slug })),
+  ]
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
+  const billboard = getClassicBillboardBySlug(slug)
+  if (billboard) {
+    return createPageMetadata({
+      title: billboard.title,
+      description: billboard.metaDescription,
+      path: `/lokacije/${billboard.slug}`,
+    })
+  }
+
   const location = getLocationBySlug(slug)
   if (!location) return { title: 'Lokacija nije pronađena' }
   const title = `${location.name} | LED bilbordi – Lokacije`
-  const description =
+  const description = location.seoDescription ?? (
     location.shortDescription.length > 160
       ? location.shortDescription.slice(0, 157) + '...'
       : location.shortDescription
-  return { title, description }
+  )
+  const image = location.images.find((src) => src.startsWith('/'))
+  return createPageMetadata({
+    title: location.seoTitle ?? title,
+    description,
+    path: `/lokacije/${location.slug}`,
+    image,
+  })
 }
 
 export default async function LocationDetailPage({ params }: PageProps) {
   const { slug } = await params
+  const billboard = getClassicBillboardBySlug(slug)
+  if (billboard) {
+    return <ClassicBillboardDetailPage billboard={billboard} />
+  }
+
   const location = getLocationBySlug(slug)
   if (!location) notFound()
 
@@ -63,7 +93,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
       <Section className="md:pb-4">
         <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-8 md:mb-0">
-                <h1 className="text-4xl font-bold text-gray-900">{location.name}</h1>
+                <h1 className="text-4xl font-bold text-gray-900">{location.h1 ?? location.name}</h1>
                 <p className="text-lg text-gray-600">
                   {location.shortDescription}
                 </p>
@@ -83,7 +113,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
       <Section className="bg-gray-50 md:pt-2">
         <LocationGallery
           images={location.images}
-          mainImageAlt={location.slug === 'beograd-lokacija-1' ? 'LED bilbord Južni bulevar Beograd' : undefined}
+          mainImageAlt={location.galleryAlt ?? (location.slug === 'beograd-lokacija-1' ? 'LED bilbord Južni bulevar Beograd' : undefined)}
         />
       </Section>
 
@@ -106,43 +136,52 @@ export default async function LocationDetailPage({ params }: PageProps) {
                       Ključne informacije
                     </h3>
                     <dl className="space-y-3 text-sm">
-                      <div>
-                        <dt className="text-gray-500">Grad</dt>
-                        <dd className="font-medium text-gray-900">{location.city}</dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Zona</dt>
-                        <dd className="font-medium text-gray-900">{location.addressArea}</dd>
-                      </div>
-                      {location.tipLokacije && (
-                        <div>
-                          <dt className="text-gray-500">Tip lokacije</dt>
-                          <dd className="font-medium text-gray-900">{location.tipLokacije}</dd>
+                      {location.keyInformation ? location.keyInformation.map((item) => (
+                        <div key={item.label}>
+                          <dt className="text-gray-500">{item.label}</dt>
+                          <dd className="font-medium text-gray-900">{item.value}</dd>
                         </div>
+                      )) : (
+                        <>
+                          <div>
+                            <dt className="text-gray-500">Grad</dt>
+                            <dd className="font-medium text-gray-900">{location.city}</dd>
+                          </div>
+                          <div>
+                            <dt className="text-gray-500">Zona</dt>
+                            <dd className="font-medium text-gray-900">{location.addressArea}</dd>
+                          </div>
+                          {location.tipLokacije && (
+                            <div>
+                              <dt className="text-gray-500">Tip lokacije</dt>
+                              <dd className="font-medium text-gray-900">{location.tipLokacije}</dd>
+                            </div>
+                          )}
+                          <div>
+                            <dt className="text-gray-500">Ciljna publika</dt>
+                            <dd className="font-medium text-gray-900">{location.audience}</dd>
+                          </div>
+                          <div>
+                            <dt className="text-gray-500">Prikaz</dt>
+                            <dd className="font-medium text-gray-900">24/7</dd>
+                          </div>
+                          <div>
+                            <dt className="text-gray-500">Trajanje reklame</dt>
+                            <dd className="font-medium text-gray-900">8 sekundi</dd>
+                          </div>
+                          <div>
+                            <dt className="text-gray-500">Interval prikaza</dt>
+                            <dd className="font-medium text-gray-900">64 sekunde</dd>
+                          </div>
+                          {location.vidljivost && (
+                            <div>
+                              <dt className="text-gray-500">Vidljivost</dt>
+                              <dd className="font-medium text-gray-900">{location.vidljivost}</dd>
+                            </div>
+                          )}
+                          {/* Removed Mesečni broj prikazivanja and Visoka rezolucija as requested */}
+                        </>
                       )}
-                      <div>
-                        <dt className="text-gray-500">Ciljna publika</dt>
-                        <dd className="font-medium text-gray-900">{location.audience}</dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Prikaz</dt>
-                        <dd className="font-medium text-gray-900">24/7</dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Trajanje reklame</dt>
-                        <dd className="font-medium text-gray-900">8 sekundi</dd>
-                      </div>
-                      <div>
-                        <dt className="text-gray-500">Interval prikaza</dt>
-                        <dd className="font-medium text-gray-900">64 sekunde</dd>
-                      </div>
-                      {location.vidljivost && (
-                        <div>
-                          <dt className="text-gray-500">Vidljivost</dt>
-                          <dd className="font-medium text-gray-900">{location.vidljivost}</dd>
-                        </div>
-                      )}
-                      {/* Removed Mesečni broj prikazivanja and Visoka rezolucija as requested */}
                     </dl>
                   </div>
                 </div>
@@ -170,33 +209,52 @@ export default async function LocationDetailPage({ params }: PageProps) {
                   </h2>
                 </div>
                 <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Dimenzije ekrana</dt>
-                    <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '4 × 3 m' : 'Standardni gradski LED format'}</dd>
-                  </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Rezolucija</dt>
-                    <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '768 × 576 px' : 'Visoka rezolucija (HD / 4K)'}</dd>
-                  </div>
-                  {location.slug !== 'beograd-lokacija-1' && (
-                    <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                      <dt className="text-sm font-medium text-gray-500 mb-1">Format materijala</dt>
-                      <dd className="text-gray-900">JPG, PNG ili MP4</dd>
+                  {location.technicalSpecifications ? location.technicalSpecifications.map((item) => (
+                    <div key={item.label} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                      <dt className="text-sm font-medium text-gray-500 mb-1">{item.label}</dt>
+                      <dd className="text-gray-900">
+                        {item.details ? (
+                          <div className="space-y-1">
+                            {item.details.map((detail) => (
+                              <div key={detail}>{detail}</div>
+                            ))}
+                          </div>
+                        ) : (
+                          item.value
+                        )}
+                      </dd>
                     </div>
-                  )}
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Trajanje prikaza</dt>
-                    <dd className="text-gray-900">8 sekundi</dd>
-                  </div>
-                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                    <dt className="text-sm font-medium text-gray-500 mb-1">Interval prikaza</dt>
-                    <dd className="text-gray-900">64 sekunde</dd>
-                  </div>
-                  {location.slug !== 'beograd-lokacija-1' && (
-                    <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                      <dt className="text-sm font-medium text-gray-500 mb-1">Vidljivost</dt>
-                      <dd className="text-gray-900">Optimizovana za dnevne i noćne uslove</dd>
-                    </div>
+                  )) : (
+                    <>
+                      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <dt className="text-sm font-medium text-gray-500 mb-1">Dimenzije ekrana</dt>
+                        <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '4 × 3 m' : 'Standardni gradski LED format'}</dd>
+                      </div>
+                      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <dt className="text-sm font-medium text-gray-500 mb-1">Rezolucija</dt>
+                        <dd className="text-gray-900">{location.slug === 'beograd-lokacija-1' ? '768 × 576 px' : 'Visoka rezolucija (HD / 4K)'}</dd>
+                      </div>
+                      {location.slug !== 'beograd-lokacija-1' && (
+                        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                          <dt className="text-sm font-medium text-gray-500 mb-1">Format materijala</dt>
+                          <dd className="text-gray-900">JPG, PNG ili MP4</dd>
+                        </div>
+                      )}
+                      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <dt className="text-sm font-medium text-gray-500 mb-1">Trajanje prikaza</dt>
+                        <dd className="text-gray-900">8 sekundi</dd>
+                      </div>
+                      <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <dt className="text-sm font-medium text-gray-500 mb-1">Interval prikaza</dt>
+                        <dd className="text-gray-900">64 sekunde</dd>
+                      </div>
+                      {location.slug !== 'beograd-lokacija-1' && (
+                        <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                          <dt className="text-sm font-medium text-gray-500 mb-1">Vidljivost</dt>
+                          <dd className="text-gray-900">Optimizovana za dnevne i noćne uslove</dd>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -205,7 +263,7 @@ export default async function LocationDetailPage({ params }: PageProps) {
                  Idealno za:
                 </h3>
                 <div className="flex flex-wrap justify-center gap-2">
-                  {['Brendiranje', 'Lansiranje proizvoda', 'Retail', 'Usluge', 'Saloni', 'Lokalni biznisi', 'Sportski centri', 'Restorani'].map((tag, index) => (
+                  {(location.idealFor ?? ['Brendiranje', 'Lansiranje proizvoda', 'Retail', 'Usluge', 'Saloni', 'Lokalni biznisi', 'Sportski centri', 'Restorani']).map((tag, index) => (
                     <span
                       key={index}
                       className="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-sm text-gray-600"
@@ -228,7 +286,10 @@ export default async function LocationDetailPage({ params }: PageProps) {
               </div>
               <div className="rounded-xl border border-gray-200 overflow-hidden h-[320px] md:h-[420px]">
                 <MapSection
-                  locations={[location]}
+                  locations={[{
+                    ...location,
+                    ...(location.googleMapsUrl ? { googleMapsUrl: location.googleMapsUrl } : {}),
+                  }]}
                   selectedCoords={{ lat: location.lat, lng: location.lng }}
                   selectedLocationId={location.id}
                 />
@@ -236,7 +297,24 @@ export default async function LocationDetailPage({ params }: PageProps) {
             </div>
       </Section>
 
-      <SharedLeadFormSection id="upit-forma" defaultLocationId={location.id} />
+      <SharedLeadFormSection
+        id="upit-forma"
+        defaultLocationId={
+          location.slug === 'led-bilbord-autoput-beograd-konjarnik'
+            ? 'Autoput'
+            : location.slug === 'led-bilbord-ledine-surcinska'
+              ? 'Ledine'
+            : location.slug === 'led-bilbord-ledine-skretanje-za-aerodrom'
+                ? 'Ledine'
+              : location.slug === 'led-bilbord-lestane-kruzni-put'
+                ? 'Leštane'
+              : location.slug === 'led-bilbord-bulevar-nikole-tesle'
+                ? 'Novi Beograd'
+              : location.slug === 'mega-led-bilbordi-tosin-bunar-zemunska'
+                ? 'Novi Beograd'
+              : location.id
+        }
+      />
     </>
   )
 }

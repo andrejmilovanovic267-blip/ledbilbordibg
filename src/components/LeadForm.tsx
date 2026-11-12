@@ -7,9 +7,10 @@ import { createLeadFormSchema, type LeadFormData } from '@/lib/validation'
 import { cn } from '@/lib/utils'
 
 const regionOptions = [
-  'Novi Beograd',
-  'Zemun',
   'Vračar',
+  'Ledine',
+  'Leštane',
+  'Novi Beograd',
   'Stari grad',
   'Savski venac',
   'Karaburma',

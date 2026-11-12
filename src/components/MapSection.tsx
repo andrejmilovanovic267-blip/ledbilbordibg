@@ -1,7 +1,16 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import type { LocationItem } from '@/lib/locationsData'
+
+export interface MapLocation {
+  id: string
+  name: string
+  lat: number
+  lng: number
+  slug?: string
+  description?: string
+  googleMapsUrl?: string
+}
 
 const BelgradeMap = dynamic(
   () => import('@/components/BelgradeMap').then((m) => m.BelgradeMap),
@@ -16,7 +25,7 @@ const BelgradeMap = dynamic(
 )
 
 interface MapSectionProps {
-  locations: LocationItem[]
+  locations: MapLocation[]
   selectedCoords: { lat: number; lng: number } | null
   selectedLocationId: string | null
   className?: string

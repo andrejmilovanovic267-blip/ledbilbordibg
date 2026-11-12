@@ -1,5 +1,13 @@
 import Link from 'next/link'
 import { BLOG_POSTS } from '@/lib/blogPosts'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata = createPageMetadata({
+  title: 'Blog o bilbordima i spoljnjem oglašavanju',
+  description:
+    'Vodiči i korisne informacije o iznajmljivanju bilborda, cenama, lokacijama i LED oglašavanju u Beogradu.',
+  path: '/blog',
+})
 
 export default function BlogPage() {
   return (
