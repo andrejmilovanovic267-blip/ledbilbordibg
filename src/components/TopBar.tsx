@@ -29,7 +29,7 @@ export function TopBar() {
             <span className="hidden sm:inline text-white/90 whitespace-nowrap">Emitovanje 24/7</span>
             <span className="hidden md:inline text-white/60">•</span>
             <span className="hidden md:inline">
-              Ograničen broj slotova za oktobar</span>
+              Ograničen broj slotova za novembar</span>
             {/* Mobile-only email aligned right */}
             <a href={`mailto:${EMAIL}`} className={`${linkClass} inline sm:hidden whitespace-nowrap`}>
               {EMAIL}

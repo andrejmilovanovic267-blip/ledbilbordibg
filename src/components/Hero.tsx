@@ -45,12 +45,12 @@ export function Hero() {
           <div className="flex items-center justify-center">
             <div className="relative w-full overflow-hidden rounded-[32px] h-[260px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <Image
-                src="/Heornova.png"
+                src="/skupstinahero.png"
                 alt="Bilbordi Beograd"
                 fill
                 priority
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover object-center md:object-[62%_center]"
               />
             </div>
           </div>
